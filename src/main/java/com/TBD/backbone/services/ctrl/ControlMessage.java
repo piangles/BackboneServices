@@ -6,7 +6,7 @@ package com.TBD.backbone.services.ctrl;
  * the one that will belong to the user. Products can define their own control channels
  * based on business logic.  
  * 
- * All the fields are mandatory before the message can be published.
+ * All the fields are mandatory.
  * 
  * My Cousin Vinny  
  * Mona Lisa Vito: My biological clock is ticking like this, and the way this case is going, I ain't never getting married!
