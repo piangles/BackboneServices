@@ -1,5 +1,6 @@
 package org.piangles.backbone.services.ctrl;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +18,9 @@ import java.util.List;
  * Neal Page: ...Those aren't pillows!
  * Del Griffith: Aaaaaahhh!
  */
-public final class FanoutRequest
+public final class FanoutRequest implements Serializable
 {
+	private static final long serialVersionUID = 1L;
 	/**
 	 * A special type of entity where by the service interprets the entityIds as Topics itself.
 	 */

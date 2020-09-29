@@ -1,5 +1,7 @@
 package org.piangles.backbone.services.ctrl;
 
+import java.io.Serializable;
+
 /**
  * This is the actual message that is sent on the control channel. In the minimum 
  * there will be atleast be one control channel per user. That control channel is
@@ -11,8 +13,10 @@ package org.piangles.backbone.services.ctrl;
  * My Cousin Vinny  
  * Mona Lisa Vito: My biological clock is ticking like this, and the way this case is going, I ain't never getting married!
  */
-public final class ControlMessage
+public final class ControlMessage implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * This will be uniquely identiying the type of ControlMessage much
 	 * like an endpoint. There will only be one ControlMessageHandler which 

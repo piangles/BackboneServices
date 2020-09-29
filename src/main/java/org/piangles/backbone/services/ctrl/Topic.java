@@ -1,5 +1,7 @@
 package org.piangles.backbone.services.ctrl;
 
+import java.io.Serializable;
+
 /**
  * Topic on which the content will be published. 
  * The partition number is specifically for Kafka. 
@@ -13,8 +15,9 @@ package org.piangles.backbone.services.ctrl;
  *  
  *  - Alan Isaacman quotes Justice Antonin Scalia
  */
-public class Topic
+public class Topic implements Serializable
 {
+	private static final long serialVersionUID = 1L;
 	public static int NOT_PARTIONED = -1;
 	private String topicName;
 	private int partitionNo;
