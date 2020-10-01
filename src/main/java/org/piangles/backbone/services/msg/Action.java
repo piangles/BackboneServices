@@ -1,4 +1,4 @@
-package org.piangles.backbone.services.ctrl;
+package org.piangles.backbone.services.msg;
 
 /**
  * 
