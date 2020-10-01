@@ -8,6 +8,9 @@ import java.io.Serializable;
  * the one that will belong to the user. Products can define their own control channels
  * based on business logic.  
  * 
+ * The only time Control Messages should be sent are when changes to Key element(s) of
+ * an Entity result in Subscription actions listed in actions.
+ * 
  * All the fields are mandatory.
  * 
  * The Godfather
