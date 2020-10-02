@@ -18,7 +18,7 @@ import java.io.Serializable;
 public class Topic implements Serializable
 {
 	private static final long serialVersionUID = 1L;
-	public static int NOT_PARTIONED = 0;
+	private static int NOT_PARTIONED = -1;
 	private String topicName;
 	private int partition;
 	
@@ -43,13 +43,8 @@ public class Topic implements Serializable
 		return partition;
 	}
 
-	public String getPartitionAsString()
-	{
-		return "" + partition;
-	}
-
 	public boolean isPartioned()
 	{
-		return partition != 0;
+		return partition != NOT_PARTIONED;
 	}
 }

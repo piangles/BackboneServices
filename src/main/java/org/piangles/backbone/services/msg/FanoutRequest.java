@@ -50,7 +50,12 @@ public final class FanoutRequest implements Serializable
 	
 	public FanoutRequest(DistributionListType distributionListType, Message message)
 	{
-		this(distributionListType, new ArrayList<>(), message);
+		this(distributionListType, null, new ArrayList<>(), message);
+	}
+
+	public FanoutRequest(DistributionListType distributionListType, String entityType, Message message)
+	{
+		this(distributionListType, entityType, new ArrayList<>(), message);
 	}
 
 	public FanoutRequest(DistributionListType distributionListType, List<String> distributionList, Message message)
