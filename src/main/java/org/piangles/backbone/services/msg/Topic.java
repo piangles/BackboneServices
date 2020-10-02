@@ -18,19 +18,19 @@ import java.io.Serializable;
 public class Topic implements Serializable
 {
 	private static final long serialVersionUID = 1L;
-	public static int NOT_PARTIONED = -1;
+	public static int NOT_PARTIONED = 0;
 	private String topicName;
-	private int partitionNo;
+	private int partition;
 	
 	public Topic(String topic)
 	{
 		this(topic, NOT_PARTIONED);
 	}
 
-	public Topic(String topicName, int partitionNo)
+	public Topic(String topicName, int partition)
 	{
 		this.topicName = topicName;
-		this.partitionNo = partitionNo;
+		this.partition = partition;
 	}
 	
 	public String getTopicName()
@@ -38,13 +38,18 @@ public class Topic implements Serializable
 		return topicName;
 	}
 	
-	public int getPartitionNo()
+	public int getPartition()
 	{
-		return partitionNo;
+		return partition;
+	}
+
+	public String getPartitionAsString()
+	{
+		return "" + partition;
 	}
 
 	public boolean isPartioned()
 	{
-		return partitionNo != -1;
+		return partition != 0;
 	}
 }
