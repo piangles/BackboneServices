@@ -14,5 +14,6 @@ package org.piangles.backbone.services.msg;
 public enum DistributionListType
 {
 	Topic,
-	Alias
+	Alias,
+	Entity
 }

@@ -27,7 +27,7 @@ public final class FanoutRequest implements Serializable
 	 * Product has to set up the Datastore table with the required entity(Type & Id) mappings.
 	 * 
 	 */
-	private DistributionListType entityIdType;
+	private DistributionListType distributionListType;
 	/**
 	 * Distribution List of entities this message has to be sent to interpretation of this 
 	 * is left for the Product.
@@ -41,21 +41,21 @@ public final class FanoutRequest implements Serializable
 	
 	private Message message = null;
 	
-	public FanoutRequest(DistributionListType entityIdType, Message message)
+	public FanoutRequest(DistributionListType distributionListType, Message message)
 	{
-		this(entityIdType, new ArrayList<>(), message);
+		this(distributionListType, new ArrayList<>(), message);
 	}
 
-	public FanoutRequest(DistributionListType entityIdType, List<String> distributionList, Message message)
+	public FanoutRequest(DistributionListType distributionListType, List<String> distributionList, Message message)
 	{
-		this.entityIdType = entityIdType;
+		this.distributionListType = distributionListType;
 		this.distributionList = distributionList;
 		this.message = message;
 	}
 
 	public DistributionListType getDistributionListType()
 	{
-		return entityIdType;
+		return distributionListType;
 	}
 	
 	public List<String> getDistributionList()
