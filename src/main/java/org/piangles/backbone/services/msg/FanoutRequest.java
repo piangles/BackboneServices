@@ -28,6 +28,13 @@ public final class FanoutRequest implements Serializable
 	 * 
 	 */
 	private DistributionListType distributionListType;
+	
+	/**
+	 * There can be many types of entities. There is always the possibility
+	 * the same entityId needs to map for different topics for. The entityType
+	 * classifies the purpose.
+	 */
+	private String entityType;
 	/**
 	 * Distribution List of entities this message has to be sent to interpretation of this 
 	 * is left for the Product.
@@ -48,7 +55,13 @@ public final class FanoutRequest implements Serializable
 
 	public FanoutRequest(DistributionListType distributionListType, List<String> distributionList, Message message)
 	{
+		this(distributionListType, null, distributionList, message);
+	}
+
+	public FanoutRequest(DistributionListType distributionListType, String entityType, List<String> distributionList, Message message)
+	{
 		this.distributionListType = distributionListType;
+		this.entityType = entityType;
 		this.distributionList = distributionList;
 		this.message = message;
 	}
@@ -56,6 +69,11 @@ public final class FanoutRequest implements Serializable
 	public DistributionListType getDistributionListType()
 	{
 		return distributionListType;
+	}
+	
+	public String getEntityType()
+	{
+		return entityType;
 	}
 	
 	public List<String> getDistributionList()
