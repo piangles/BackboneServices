@@ -23,43 +23,44 @@ public final class FanoutRequest implements Serializable
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * EntityIdType is used to look up the various entityIds and convert them to Topics.
+	 * DistributionListType is used to look up the various entityIds and convert them to Topics.
 	 * Product has to set up the Datastore table with the required entity(Type & Id) mappings.
 	 * 
 	 */
-	private EntityIdType entityIdType;
+	private DistributionListType entityIdType;
 	/**
-	 * List of unique entityIds, interpretation of this is left for the Product.
+	 * Distribution List of entities this message has to be sent to interpretation of this 
+	 * is left for the Product.
 	 * Ex: 
 	 * UserIds - when individuals have to be notified. 
 	 * GroupId - In event a new group chat is created.
 	 * TopicNames - In the event the entityType is Topic
 	 *  
 	 */
-	private List<String> entityIds = null;
+	private List<String> distributionList = null;
 	
 	private Message message = null;
 	
-	public FanoutRequest(EntityIdType entityIdType, Message message)
+	public FanoutRequest(DistributionListType entityIdType, Message message)
 	{
 		this(entityIdType, new ArrayList<>(), message);
 	}
 
-	public FanoutRequest(EntityIdType entityIdType, List<String> entityIds, Message message)
+	public FanoutRequest(DistributionListType entityIdType, List<String> distributionList, Message message)
 	{
 		this.entityIdType = entityIdType;
-		this.entityIds = entityIds;
+		this.distributionList = distributionList;
 		this.message = message;
 	}
 
-	public EntityIdType getEntityIdType()
+	public DistributionListType getDistributionListType()
 	{
 		return entityIdType;
 	}
 	
-	public List<String> getEntityIds()
+	public List<String> getDistributionList()
 	{
-		return entityIds;
+		return distributionList;
 	}
 
 	public Message getMessage()

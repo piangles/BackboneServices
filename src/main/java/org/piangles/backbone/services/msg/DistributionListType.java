@@ -11,7 +11,7 @@ package org.piangles.backbone.services.msg;
  * 			in the mind to suffer the slings and arrows of outrageous fortune, 
  * 			or take arms against a sea of troubles, and by opposing, end them.
  */
-public enum EntityIdType
+public enum DistributionListType
 {
 	Topic,
 	Alias
