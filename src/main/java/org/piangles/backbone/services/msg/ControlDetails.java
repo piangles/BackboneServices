@@ -59,4 +59,10 @@ public final class ControlDetails implements Serializable
 	{
 		return content;
 	}
+
+	@Override
+	public String toString()
+	{
+		return "ControlDetails [type=" + type + ", action=" + action + ", content=" + content + "]";
+	}
 }

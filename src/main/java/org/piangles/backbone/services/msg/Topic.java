@@ -47,4 +47,10 @@ public class Topic implements Serializable
 	{
 		return partition != NOT_PARTIONED;
 	}
+
+	@Override
+	public String toString()
+	{
+		return "Topic [topicName=" + topicName + ", partition=" + partition + "]";
+	}
 }

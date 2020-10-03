@@ -36,21 +36,11 @@ public final class Message implements Serializable
 	 */
 	private Object payload;
 
-	public Message(String primaryKey, ControlDetails payload)
-	{
-		this(MessageType.Control, primaryKey, payload.getClass().getName(), payload);
-	}
-
 	public Message(MessageType type, String primaryKey, Object payload)
-	{
-		this(type, primaryKey, payload.getClass().getName(), payload);
-	}
-
-	private Message(MessageType type, String primaryKey, String payloadType, Object payload)
 	{
 		this.type = type;
 		this.primaryKey = primaryKey;
-		this.payloadType = payloadType;
+		this.payloadType = payload.getClass().getName();
 		this.payload = payload;
 	}
 
@@ -72,5 +62,16 @@ public final class Message implements Serializable
 	public Object getPayload()
 	{
 		return payload;
+	}
+
+	public void setPayload(Object payload)
+	{
+		this.payload = payload;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "Message [type=" + type + ", primaryKey=" + primaryKey + ", payloadType=" + payloadType + ", payload=" + payload + "]";
 	}
 }
