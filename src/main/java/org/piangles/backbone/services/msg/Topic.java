@@ -47,6 +47,33 @@ public class Topic implements Serializable
 	{
 		return partition != NOT_PARTIONED;
 	}
+	
+	
+	@Override
+	public int hashCode()
+	{
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + partition;
+		result = prime * result + ((topicName == null) ? 0 : topicName.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (this == obj) return true;
+		if (obj == null) return false;
+		if (getClass() != obj.getClass()) return false;
+		Topic other = (Topic) obj;
+		if (partition != other.partition) return false;
+		if (topicName == null)
+		{
+			if (other.topicName != null) return false;
+		}
+		else if (!topicName.equals(other.topicName)) return false;
+		return true;
+	}
 
 	@Override
 	public String toString()
