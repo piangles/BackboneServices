@@ -15,7 +15,7 @@ package org.piangles.backbone.services.msg;
  * 					I ain't never getting married!
  */
 
-public enum MessageType
+public enum EventType
 {
 	Control,
 	Notification

@@ -12,11 +12,11 @@ import java.io.Serializable;
  * Good Will Hunting  
  * Will Hunting: "Well, I got her number. How do you like them apples?"
  */
-public final class Message implements Serializable
+public final class Event implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
-	private MessageType type;
+	private EventType type;
 	
 	/**
 	 * This uniquely identifies the message. And will override any previous message with
@@ -36,7 +36,7 @@ public final class Message implements Serializable
 	 */
 	private Object payload;
 
-	public Message(MessageType type, String primaryKey, Object payload)
+	public Event(EventType type, String primaryKey, Object payload)
 	{
 		this.type = type;
 		this.primaryKey = primaryKey;
@@ -44,7 +44,7 @@ public final class Message implements Serializable
 		this.payload = payload;
 	}
 
-	public MessageType getType()
+	public EventType getType()
 	{
 		return type;
 	}

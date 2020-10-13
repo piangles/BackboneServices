@@ -46,29 +46,29 @@ public final class FanoutRequest implements Serializable
 	 */
 	private List<String> distributionList = null;
 	
-	private Message message = null;
+	private Event event = null;
 	
-	public FanoutRequest(DistributionListType distributionListType, Message message)
+	public FanoutRequest(DistributionListType distributionListType, Event event)
 	{
-		this(distributionListType, null, new ArrayList<>(), message);
+		this(distributionListType, null, new ArrayList<>(), event);
 	}
 
-	public FanoutRequest(DistributionListType distributionListType, String entityType, Message message)
+	public FanoutRequest(DistributionListType distributionListType, String entityType, Event event)
 	{
-		this(distributionListType, entityType, new ArrayList<>(), message);
+		this(distributionListType, entityType, new ArrayList<>(), event);
 	}
 
-	public FanoutRequest(DistributionListType distributionListType, List<String> distributionList, Message message)
+	public FanoutRequest(DistributionListType distributionListType, List<String> distributionList, Event event)
 	{
-		this(distributionListType, null, distributionList, message);
+		this(distributionListType, null, distributionList, event);
 	}
 
-	public FanoutRequest(DistributionListType distributionListType, String entityType, List<String> distributionList, Message message)
+	public FanoutRequest(DistributionListType distributionListType, String entityType, List<String> distributionList, Event event)
 	{
 		this.distributionListType = distributionListType;
 		this.entityType = entityType;
 		this.distributionList = distributionList;
-		this.message = message;
+		this.event = event;
 	}
 
 	public DistributionListType getDistributionListType()
@@ -86,8 +86,8 @@ public final class FanoutRequest implements Serializable
 		return distributionList;
 	}
 
-	public Message getMessage()
+	public Event getEvent()
 	{
-		return message;
+		return event;
 	}
 }
