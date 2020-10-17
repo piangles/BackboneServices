@@ -10,7 +10,12 @@ public final class Identifier implements Serializable
 	private String value = null;
 	private long generatedTimeStamp;
 	private Date validTillDate = null; //null implies perpetual
-	
+
+	public Identifier(String value, long generatedTimeStamp)
+	{
+		this(value, generatedTimeStamp, null);
+	}
+
 	public Identifier(String value, long generatedTimeStamp, Date validTillDate)
 	{
 		this.value = value;
