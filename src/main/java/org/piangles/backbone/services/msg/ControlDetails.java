@@ -20,6 +20,7 @@ public final class ControlDetails implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
+	
 	/**
 	 * Should be unique across application and correspond to a
 	 * ControlMessageHandler that processes these details

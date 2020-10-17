@@ -4,5 +4,5 @@ public enum FailureReason
 {
 	PasswordMismatch,
 	AccountDisabled,
-	TooManyTries;
+	TooManyAttempts;
 }

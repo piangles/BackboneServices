@@ -6,25 +6,26 @@ public final class AuthenticationResponse implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 	
-	private boolean authenticated = false;
+	private boolean requestSuccessful = false;
 	private FailureReason failureReason = null;
+	private int noOfAttemptsRemaining = 0;
 	private String userId = null;
 
 	public AuthenticationResponse(String userId)
 	{
-		this.authenticated = true;
+		this.requestSuccessful = true;
 		this.userId = userId;
 	}
 
-	public AuthenticationResponse(boolean authenticated, FailureReason failureReason)
+	public AuthenticationResponse(String userId, boolean requestSuccessful, FailureReason failureReason)
 	{
-		this.authenticated = authenticated;
+		this.requestSuccessful = requestSuccessful;
 		this.failureReason = failureReason;
 	}
 
 	public boolean isAuthenticated()
 	{
-		return authenticated;
+		return requestSuccessful;
 	}
 
 	public FailureReason getFailureReason()
@@ -40,6 +41,6 @@ public final class AuthenticationResponse implements Serializable
 	@Override
 	public String toString()
 	{
-		return "AuthenticationResponse [authenticated=" + authenticated + ", failureReason=" + failureReason + ", userId=" + userId + "]";
+		return "AuthenticationResponse [authenticated=" + requestSuccessful + ", failureReason=" + failureReason + ", userId=" + userId + "]";
 	}
 }
