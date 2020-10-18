@@ -1,7 +1,11 @@
 package org.piangles.backbone.services.auth;
 
-public final class Credential
+import java.io.Serializable;
+
+public final class Credential implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+	
 	private String loginId = null;
 	private String password = null;
 	
