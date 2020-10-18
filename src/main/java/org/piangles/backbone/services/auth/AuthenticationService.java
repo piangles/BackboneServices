@@ -6,7 +6,7 @@ public interface AuthenticationService
 	
 	public AuthenticationResponse authenticate(Credential credential) throws AuthenticationException;
 
-	public void generateResetToken(String loginId) throws AuthenticationException;
+	public boolean generateResetToken(String loginId) throws AuthenticationException;
 	
 	public AuthenticationResponse validatePasswordStrength(String password) throws AuthenticationException;
 
