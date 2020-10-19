@@ -46,6 +46,11 @@ public final class AuthenticationResponse implements Serializable
 		return userId;
 	}
 
+	public boolean isRequestSuccessful()
+	{
+		return requestSuccessful;
+	}
+	
 	public boolean isAuthenticated()
 	{
 		return requestSuccessful;
