@@ -4,6 +4,7 @@ public enum FailureReason
 {
 	InternalError,
 	AuthenticationFailed,
+	InvalidSession,
 	AccountDisabled,
 	TooManyAttempts,
 	PasswordDoesNotMeetStrength;
