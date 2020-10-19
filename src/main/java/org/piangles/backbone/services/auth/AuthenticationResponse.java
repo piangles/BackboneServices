@@ -1,26 +1,49 @@
 package org.piangles.backbone.services.auth;
 
 import java.io.Serializable;
+import java.util.List;
 
 public final class AuthenticationResponse implements Serializable
 {
 	private static final long serialVersionUID = 1L;
-	
+
+	private String userId = null;
+	private boolean validatedByToken = false;
+	private int noOfAttemptsRemaining = 0;
+
 	private boolean requestSuccessful = false;
 	private FailureReason failureReason = null;
-	private int noOfAttemptsRemaining = 0;
-	private String userId = null;
+	private List<String> failureMessages = null;	
 
-	public AuthenticationResponse(String userId)
+	public AuthenticationResponse(boolean requestSuccessful)
+	{
+		this.requestSuccessful = requestSuccessful;
+	}
+
+	public AuthenticationResponse(String userId, boolean validatedByToken)
 	{
 		this.requestSuccessful = true;
 		this.userId = userId;
+		this.validatedByToken = validatedByToken;
 	}
 
-	public AuthenticationResponse(String userId, boolean requestSuccessful, FailureReason failureReason)
+	public AuthenticationResponse(FailureReason failureReason, int noOfAttemptsRemaining)
 	{
-		this.requestSuccessful = requestSuccessful;
+		this.requestSuccessful = false;
 		this.failureReason = failureReason;
+		this.noOfAttemptsRemaining = noOfAttemptsRemaining;
+	}
+
+	public AuthenticationResponse(FailureReason failureReason, List<String> failureMessages)
+	{
+		this.requestSuccessful = false;
+		this.failureReason = failureReason;
+		this.failureMessages = failureMessages;
+	}
+
+	public String getUserId()
+	{
+		return userId;
 	}
 
 	public boolean isAuthenticated()
@@ -32,15 +55,26 @@ public final class AuthenticationResponse implements Serializable
 	{
 		return failureReason;
 	}
-
-	public String getUserId()
+	
+	public int getNoOfAttemptsRemaining()
 	{
-		return userId;
+		return noOfAttemptsRemaining;
+	}
+	
+	public List<String> getFailureMessages()
+	{
+		return failureMessages;
+	}
+
+	public boolean IsValidatedByToken()
+	{
+		return validatedByToken;
 	}
 
 	@Override
 	public String toString()
 	{
-		return "AuthenticationResponse [authenticated=" + requestSuccessful + ", failureReason=" + failureReason + ", userId=" + userId + "]";
+		return "AuthenticationResponse [userId=" + userId + ", validatedByToken=" + validatedByToken + ", noOfAttemptsRemaining=" + noOfAttemptsRemaining + ", requestSuccessful=" + requestSuccessful
+				+ ", failureReason=" + failureReason + ", failureMessages=" + failureMessages + "]";
 	}
 }

@@ -2,7 +2,7 @@ package org.piangles.backbone.services.auth;
 
 public interface AuthenticationService
 {
-	public boolean createAuthenticationEntry(Credential credential) throws AuthenticationException;
+	public boolean createAuthenticationEntry(String userId, Credential credential) throws AuthenticationException;
 	
 	public AuthenticationResponse authenticate(Credential credential) throws AuthenticationException;
 
