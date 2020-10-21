@@ -90,4 +90,10 @@ public final class FanoutRequest implements Serializable
 	{
 		return event;
 	}
+
+	@Override
+	public String toString()
+	{
+		return "FanoutRequest [distributionListType=" + distributionListType + ", entityType=" + entityType + ", distributionList=" + distributionList + ", event=" + event + "]";
+	}
 }
