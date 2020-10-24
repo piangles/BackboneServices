@@ -48,19 +48,9 @@ public final class FanoutRequest implements Serializable
 	
 	private Event event = null;
 	
-	public FanoutRequest(DistributionListType distributionListType, Event event)
-	{
-		this(distributionListType, null, new ArrayList<>(), event);
-	}
-
 	public FanoutRequest(DistributionListType distributionListType, String entityType, Event event)
 	{
 		this(distributionListType, entityType, new ArrayList<>(), event);
-	}
-
-	public FanoutRequest(DistributionListType distributionListType, List<String> distributionList, Event event)
-	{
-		this(distributionListType, null, distributionList, event);
 	}
 
 	public FanoutRequest(DistributionListType distributionListType, String entityType, List<String> distributionList, Event event)

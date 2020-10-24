@@ -6,5 +6,6 @@ public interface MessagingService
 {
 	public List<Topic> getTopicsForUser(String userId) throws MessagingException;
 	public List<Topic> getTopicsForAliases(List<String> aliases) throws MessagingException;
+	public void publish(String topic, Event event) throws MessagingException;
 	public void fanOut(FanoutRequest fanoutRequest) throws MessagingException;
 }
