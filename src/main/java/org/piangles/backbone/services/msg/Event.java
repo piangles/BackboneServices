@@ -1,6 +1,7 @@
 package org.piangles.backbone.services.msg;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 /**
  * This is the actual message that is sent on the control channel. In the minimum 
@@ -16,6 +17,8 @@ public final class Event implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
+	private UUID traceId = null;
+	
 	private EventType type;
 	
 	/**
@@ -69,9 +72,14 @@ public final class Event implements Serializable
 		this.payload = payload;
 	}
 
+	public void setTraceId(UUID traceId)
+	{
+		this.traceId = traceId;
+	}
+
 	@Override
 	public String toString()
 	{
-		return "Message [type=" + type + ", primaryKey=" + primaryKey + ", payloadType=" + payloadType + ", payload=" + payload + "]";
+		return "Event [traceId=" + traceId + ", type=" + type + ", primaryKey=" + primaryKey + ", payloadType=" + payloadType + ", payload=" + payload + "]";
 	}
 }
