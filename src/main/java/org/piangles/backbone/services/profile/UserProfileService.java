@@ -2,6 +2,8 @@ package org.piangles.backbone.services.profile;
 
 public interface UserProfileService
 {
+	public static final String NAME = UserProfileService.class.getSimpleName();
+	
 	/**
 	 * Returns a userId which is system generated.
 	 *  

@@ -2,6 +2,8 @@ package org.piangles.backbone.services.logging;
 
 public interface LoggingService
 {
+	public static final String NAME = LoggingService.class.getSimpleName();
+	
 	public void record(LogEvent logEvent);
 	
 	public void debug(Object message);

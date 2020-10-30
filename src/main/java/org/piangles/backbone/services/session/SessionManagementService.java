@@ -2,6 +2,8 @@ package org.piangles.backbone.services.session;
 
 public interface SessionManagementService
 {
+	public static final String NAME = SessionManagementService.class.getSimpleName();
+	
 	//Called when the user is authenticated
 	public SessionDetails register(String userId) throws SessionManagementException;
 	

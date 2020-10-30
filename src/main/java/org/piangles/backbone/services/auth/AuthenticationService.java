@@ -2,6 +2,8 @@ package org.piangles.backbone.services.auth;
 
 public interface AuthenticationService
 {
+	public static final String NAME = AuthenticationService.class.getSimpleName();
+	
 	public AuthenticationResponse createAuthenticationEntry(String userId, Credential credential) throws AuthenticationException;
 	
 	public AuthenticationResponse authenticate(Credential credential) throws AuthenticationException;
