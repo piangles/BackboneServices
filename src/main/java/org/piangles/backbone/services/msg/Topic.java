@@ -25,13 +25,19 @@ public class Topic implements Serializable
 	
 	public Topic(String topic)
 	{
-		this(topic, NOT_PARTIONED);
+		this(topic, NOT_PARTIONED, false);
 	}
 
 	public Topic(String topicName, int partition)
 	{
+		this(topicName, partition, false);
+	}
+
+	public Topic(String topicName, int partition, boolean compacted)
+	{
 		this.topicName = topicName;
 		this.partition = partition;
+		this.compacted = compacted;
 	}
 	
 	public String getTopicName()
