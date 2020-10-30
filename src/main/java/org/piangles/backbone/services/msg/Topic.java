@@ -21,6 +21,7 @@ public class Topic implements Serializable
 	private static int NOT_PARTIONED = -1;
 	private String topicName;
 	private int partition;
+	private boolean compacted;
 	
 	public Topic(String topic)
 	{
@@ -47,13 +48,18 @@ public class Topic implements Serializable
 	{
 		return partition != NOT_PARTIONED;
 	}
-	
-	
+
+	public boolean isCompacted()
+	{
+		return compacted;
+	}
+
 	@Override
 	public int hashCode()
 	{
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + (compacted ? 1231 : 1237);
 		result = prime * result + partition;
 		result = prime * result + ((topicName == null) ? 0 : topicName.hashCode());
 		return result;
@@ -66,6 +72,7 @@ public class Topic implements Serializable
 		if (obj == null) return false;
 		if (getClass() != obj.getClass()) return false;
 		Topic other = (Topic) obj;
+		if (compacted != other.compacted) return false;
 		if (partition != other.partition) return false;
 		if (topicName == null)
 		{
@@ -78,6 +85,6 @@ public class Topic implements Serializable
 	@Override
 	public String toString()
 	{
-		return "Topic [topicName=" + topicName + ", partition=" + partition + "]";
+		return "Topic [topicName=" + topicName + ", partition=" + partition + ", compacted=" + compacted + "]";
 	}
 }
