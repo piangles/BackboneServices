@@ -18,14 +18,18 @@ import java.io.Serializable;
 public class Topic implements Serializable
 {
 	private static final long serialVersionUID = 1L;
-	private static int NOT_PARTIONED = -1;
+	
+	public static int PARTIONED = -1;
 	private String topicName;
 	private int partition;
 	private boolean compacted;
 	
+	/**
+	 * Created a topic which is not partitioned or compacted  
+	 */
 	public Topic(String topic)
 	{
-		this(topic, NOT_PARTIONED, false);
+		this(topic, 0, false);
 	}
 
 	public Topic(String topicName, int partition)
@@ -52,7 +56,7 @@ public class Topic implements Serializable
 
 	public boolean isPartioned()
 	{
-		return partition != NOT_PARTIONED;
+		return partition == PARTIONED;
 	}
 
 	public boolean isCompacted()
