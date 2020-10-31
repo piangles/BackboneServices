@@ -47,7 +47,7 @@ public class Topic implements Serializable
 	
 	public int getPartition()
 	{
-		return partition;
+		return isPartioned()? partition:0;
 	}
 
 	public boolean isPartioned()
