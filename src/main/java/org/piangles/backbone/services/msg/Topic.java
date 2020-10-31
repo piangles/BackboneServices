@@ -19,7 +19,7 @@ public class Topic implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 	
-	public static int PARTIONED = -1;
+	public static int CUSTOM_PARTIONED = -1;
 	private String topicName;
 	private int partition;
 	private boolean compacted;
@@ -51,12 +51,12 @@ public class Topic implements Serializable
 	
 	public int getPartition()
 	{
-		return isPartioned()? partition:0;
+		return partition;
 	}
 
-	public boolean isPartioned()
+	public boolean isCustomPartioned()
 	{
-		return partition == PARTIONED;
+		return partition == CUSTOM_PARTIONED;
 	}
 
 	public boolean isCompacted()
