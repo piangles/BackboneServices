@@ -13,7 +13,7 @@ import java.io.Serializable;
  * in the world of debate about public affairs many things done with motives that are less than 
  * admirable are none of the less protected by the first amendment.
  *  
- *  - Alan Isaacman quotes Justice Antonin Scalia
+ *  - Alan Isaacman quotes Justice William Rehnquist
  */
 public class Topic implements Serializable
 {
@@ -64,25 +64,31 @@ public class Topic implements Serializable
 		return compacted;
 	}
 
+	/**
+	 * The hashCode should not consider compacted nature of the topic.
+	 * It should only consider topicName and partition.
+	 */
 	@Override
-	public int hashCode()
+	public final int hashCode()
 	{
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (compacted ? 1231 : 1237);
 		result = prime * result + partition;
 		result = prime * result + ((topicName == null) ? 0 : topicName.hashCode());
 		return result;
 	}
 
+	/**
+	 * The equals should not consider compacted nature of the topic.
+	 * It should only consider topicName and partition.
+	 */
 	@Override
-	public boolean equals(Object obj)
+	public final boolean equals(Object obj)
 	{
 		if (this == obj) return true;
 		if (obj == null) return false;
 		if (getClass() != obj.getClass()) return false;
 		Topic other = (Topic) obj;
-		if (compacted != other.compacted) return false;
 		if (partition != other.partition) return false;
 		if (topicName == null)
 		{
