@@ -1,7 +1,6 @@
 package org.piangles.backbone.services.session;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class SessionDetails implements Serializable
 {
@@ -9,16 +8,23 @@ public class SessionDetails implements Serializable
 	
 	private String userId = null;
 	private String sessionId = null;
-	private Date createdTS = null;
-	private Date lastAccessedTS = null;
+	private long createdTS;
+	private long lastAccessedTS;
 	
 	public SessionDetails(String userId, String sessionId)
 	{
-		super();
 		this.userId = userId;
 		this.sessionId = sessionId;
-		this.createdTS = new Date();
+		this.createdTS = System.currentTimeMillis();
 		this.lastAccessedTS = createdTS;
+	}
+
+	public SessionDetails(String userId, String sessionId, long createdTS, long lastAccessedTS)
+	{
+		this.userId = userId;
+		this.sessionId = sessionId;
+		this.createdTS = createdTS;
+		this.lastAccessedTS = lastAccessedTS;
 	}
 
 	public String getUserId()
@@ -31,19 +37,19 @@ public class SessionDetails implements Serializable
 		return sessionId;
 	}
 
-	public Date getCreatedTS()
+	public long getCreatedTS()
 	{
 		return createdTS;
 	}
 
-	public Date getLastAccessedTS()
+	public long getLastAccessedTS()
 	{
 		return lastAccessedTS;
 	}
 	
 	public void touch()
 	{
-		this.lastAccessedTS = new Date();
+		this.lastAccessedTS = System.currentTimeMillis();
 	}
 
 	@Override
