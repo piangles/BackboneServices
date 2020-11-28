@@ -6,8 +6,11 @@ public interface AuthenticationService
 	
 	public AuthenticationResponse createAuthenticationEntry(String userId, Credential credential) throws AuthenticationException;
 	
-	public AuthenticationResponse authenticate(Credential credential) throws AuthenticationException;
+	public AuthenticationResponse authenticate(AuthenticationType type, Credential credential) throws AuthenticationException;
 
+	/**
+	 * This will be either an loginId, emailId or phoneNo.
+	 */
 	public boolean generateResetToken(String loginId) throws AuthenticationException;
 	
 	public AuthenticationResponse validatePasswordStrength(String password) throws AuthenticationException;

@@ -9,12 +9,14 @@ public class BasicUserProfile implements Serializable
 	private String firstName = null;
 	private String lastName = null;
 	private String emailId = null;
+	private String phoneNo = null;
 
-	public BasicUserProfile(String firstName, String lastName, String emailId)
+	public BasicUserProfile(String firstName, String lastName, String emailId, String phoneNo)
 	{
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailId = emailId;
+		this.phoneNo = phoneNo;
 	}
 
 	public String getFirstName()
@@ -30,5 +32,10 @@ public class BasicUserProfile implements Serializable
 	public String getEMailId()
 	{
 		return emailId;
+	}
+	
+	public String getPhoneNo()
+	{
+		return phoneNo;
 	}
 }
