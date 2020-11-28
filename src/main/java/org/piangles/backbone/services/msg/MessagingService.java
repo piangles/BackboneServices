@@ -11,4 +11,7 @@ public interface MessagingService
 	public List<Topic> getTopicsForAliases(List<String> aliases) throws MessagingException;
 	public void publish(String topicName, Event event) throws MessagingException;
 	public void fanOut(FanoutRequest fanoutRequest) throws MessagingException;
+	
+	public Stream getStream() throws MessagingException;
+	public void createStreamForUser(String userId) throws MessagingException;
 }

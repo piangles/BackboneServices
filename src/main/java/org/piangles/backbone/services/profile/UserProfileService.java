@@ -12,6 +12,7 @@ public interface UserProfileService
 	 * @throws UserProfileException
 	 */
 	public String createProfile(BasicUserProfile profile) throws UserProfileException;
+	public String searchProfile(BasicUserProfile profile) throws UserProfileException;
 	public BasicUserProfile getProfile(String userId) throws UserProfileException;
 	public void updateProfile(String userId, BasicUserProfile profile) throws UserProfileException;
 }
