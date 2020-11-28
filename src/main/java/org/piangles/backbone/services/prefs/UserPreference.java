@@ -1,35 +1,47 @@
 package org.piangles.backbone.services.prefs;
 
 import java.io.Serializable;
-import java.util.Properties;
+import java.util.HashMap;
+import java.util.Map;
 
 public final class UserPreference implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
-	private Properties nvPair = null;
+	private String userId;
+	private Map<String, Object> nvPair = null;
 
 	public UserPreference()
 	{
-		this.nvPair = new Properties();
 	}
 
-	public UserPreference(Properties properties)
+	public UserPreference(String userId)
 	{
-		this.nvPair = properties;
+		this(userId, new HashMap<String, Object>());
 	}
 
+	public UserPreference(String userId, Map<String, Object> nvPair)
+	{
+		this.userId = userId;
+		this.nvPair = nvPair;
+	}
+
+	public String getUserId()
+	{
+		return userId;
+	}
+	
 	public String getValue(String name)
 	{
-		return nvPair.getProperty(name);
+		return (String)nvPair.get(name);
 	}
 
 	public void setValue(String name, String value)
 	{
-		nvPair.setProperty(name, value);
+		nvPair.put(name, value);
 	}
 
-	public Properties getProperties()
+	public Map<String,Object> getNVPair()
 	{
 		return nvPair;
 	}
@@ -42,11 +54,6 @@ public final class UserPreference implements Serializable
 	@Override
 	public String toString()
 	{
-		String nvPairAsStr = null;
-		if (nvPair != null)
-		{
-			nvPairAsStr = nvPair.toString();
-		}
-		return nvPairAsStr;
+		return "UserPreference [userId=" + userId + ", nvPair=" + nvPair + "]";
 	}
 }
