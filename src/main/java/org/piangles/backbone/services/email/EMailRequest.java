@@ -10,13 +10,13 @@ public class EMailRequest implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 	private String from;
-	private List<String> to;
+	private List<String> toRecipients;
 	private String subject;
 	private Map<String, String> nvPair;
 	
 	public EMailRequest()
 	{
-		this.to = new ArrayList<>();
+		this.toRecipients = new ArrayList<>();
 		this.nvPair = new HashMap<>();
 	}
 
@@ -26,9 +26,9 @@ public class EMailRequest implements Serializable
 		return this;
 	}
 
-	public EMailRequest addToRecipients(List<String> to)
+	public EMailRequest addToRecipients(String to)
 	{
-		this.to = to;
+		this.toRecipients.add(to);
 		return this;
 	}
 
@@ -44,14 +44,15 @@ public class EMailRequest implements Serializable
 		return this;
 	}
 
+	//Getters
 	public String getFrom()
 	{
 		return from;
 	}
 
-	public List<String> getTo()
+	public List<String> getToRecipients()
 	{
-		return to;
+		return toRecipients;
 	}
 
 	public String getSubject()
@@ -59,7 +60,7 @@ public class EMailRequest implements Serializable
 		return subject;
 	}
 
-	public Map<String, String> getNvPair()
+	public Map<String, String> getNVPair()
 	{
 		return nvPair;
 	}
