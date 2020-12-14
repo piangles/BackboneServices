@@ -1,6 +1,6 @@
 package org.piangles.backbone.services.test;
 
-import java.util.stream.Stream;
+import org.piangles.core.stream.Stream;
 
 public interface FeaturesTestService
 {
