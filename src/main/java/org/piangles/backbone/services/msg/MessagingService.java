@@ -6,12 +6,12 @@ public interface MessagingService
 {
 	public static final String NAME = MessagingService.class.getSimpleName();
 	
-	public Topic getTopic(String topicName) throws MessagingException;
+	public void createControlTopicForUser(String userId) throws MessagingException;
 	public List<Topic> getTopicsForUser(String userId) throws MessagingException;
+
+	public Topic getTopic(String topicName) throws MessagingException;
 	public List<Topic> getTopicsForAliases(List<String> aliases) throws MessagingException;
+	
 	public void publish(String topicName, Event event) throws MessagingException;
 	public void fanOut(FanoutRequest fanoutRequest) throws MessagingException;
-	
-	public Stream getStream() throws MessagingException;
-	public void createStreamForUser(String userId) throws MessagingException;
 }
