@@ -6,5 +6,5 @@ public interface FeaturesTestService
 {
 	public static final String NAME = FeaturesTestService.class.getSimpleName();
 	
-	public Stream<Integer> getIntegerStream() throws FeaturesTestException;
+	public Stream<String> getStringSequences() throws FeaturesTestException;
 }
