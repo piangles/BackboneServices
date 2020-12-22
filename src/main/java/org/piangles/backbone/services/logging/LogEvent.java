@@ -101,7 +101,22 @@ public final class LogEvent implements Serializable
 		sb.append(loggedTimeStamp).append(" ");
 		sb.append(systemInfo).append(" ");
 		sb.append(category).append(" ");
-		sb.append(className).append(" ");
+		sb.append(className).append(":");
+		sb.append(lineNumber).append(" ");
+		sb.append(message);
+		if (exceptionStackTrace != null)
+		{
+			sb.append("\n");
+			sb.append(exceptionStackTrace);
+		}
+		return sb.toString();
+	}
+	
+	public String toBriefString()
+	{
+		StringBuffer sb = new StringBuffer();
+		sb.append(traceId).append(" ");
+		sb.append(className.substring(className.lastIndexOf('.')+1)).append(":");
 		sb.append(lineNumber).append(" ");
 		sb.append(message);
 		if (exceptionStackTrace != null)
