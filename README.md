@@ -1,5 +1,10 @@
 # BackboneServices
 
+##Credits : 
+- Sachin Mittal
+- Saradhi Vemuri
+
+
 	//Tier1
 	SessionManagementService
 	
@@ -22,3 +27,4 @@
 	PasswordService
 	
 	ProfileService
+	
