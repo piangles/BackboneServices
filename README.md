@@ -10,10 +10,13 @@ See our [web site](https://www.piangles.org) for details on the project.
 
 	//Rest of the backbone services
 	IdService
+	EMailService
 	LoggingService
+	MessagingService
 	AuthenticationService
 	UserPreferenceService
 	UserProfileService
+	FeaturesTestService
 	
 ### Credits ### 
 - Sachin Mittal
