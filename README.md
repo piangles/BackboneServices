@@ -5,26 +5,15 @@ See our [web site](https://www.piangles.org) for details on the project.
 ### Introduction ###
 	//Tier1
 	SessionManagementService
-	
-	//Tier2
+	CryptoService
 	ConfigService
 
-	CryptoService
-	
-	//Tier3
-	LoggingService
-
-	//Tier4
+	//Rest of the backbone services
 	IdService
-	
-	//Tier5
+	LoggingService
 	AuthenticationService
-	
 	UserPreferenceService
-
-	PasswordService
-	
-	ProfileService
+	UserProfileService
 	
 ### Credits ### 
 - Sachin Mittal
@@ -33,4 +22,4 @@ See our [web site](https://www.piangles.org) for details on the project.
 ### Contribution ###
 PiAngles is interested in building the community; we would welcome any thoughts that will enhance the product. You can reach us at 
 To contribute follow the instructions here:
- * https://github.com/piangles/Manifest/blob/main/README.md
+ * https://github.com/piangles/Manifesto/blob/main/README.md
