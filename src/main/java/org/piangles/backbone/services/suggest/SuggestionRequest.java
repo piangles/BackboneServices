@@ -18,16 +18,30 @@
  
 package org.piangles.backbone.services.suggest;
 
-import java.util.List;
-
-import org.apache.kafka.common.errors.AuthorizationException;
-
-public interface AutoSuggestionService
+public final class SuggestionRequest
 {
-	public static final String NAME = AutoSuggestionService.class.getSimpleName();
+	private String dataset = null;
+	private String queryString = null;
 	
-	public List<String> getDatasetNames();
-	public SuggestionResponse suggest(SuggestionRequest suggestionRequest) throws AuthorizationException;
-	public void record(UserSelection us) throws AuthorizationException;
-	public void forceRefresh(String dataset);
+	public SuggestionRequest(String dataset, String queryString)
+	{
+		this.dataset = dataset;
+		this.queryString = queryString;
+	}
+	
+	public String getDataset()
+	{
+		return dataset;
+	}
+	
+	public String getQueryString()
+	{
+		return queryString;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return "SuggestionRequest [dataset=" + dataset + ", queryString=" + queryString + "]";
+	}
 }
