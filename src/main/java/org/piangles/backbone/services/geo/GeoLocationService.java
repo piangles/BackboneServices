@@ -20,8 +20,10 @@ package org.piangles.backbone.services.geo;
 
 public interface GeoLocationService
 {
+	public static final String NAME = GeoLocationService.class.getSimpleName();
+	
 	public GeoLocation getLocationFromIPAddress(String ipAddress) throws GeoLocationException;
 	public GeoLocation getLocationFromPhysicalAddress(PhysicalAddress physicalAddress) throws GeoLocationException;
 	public GeoLocation getLocationFromZipCode(ZipCode zipCode) throws GeoLocationException;
-	public GeoLocation getIntersection(GeoLocation geoLocation1, GeoLocation geoLocation2) throws GeoLocationException;
+	public GeoLocation findCenterOf(GeoLocation...geoLocations) throws GeoLocationException;
 }

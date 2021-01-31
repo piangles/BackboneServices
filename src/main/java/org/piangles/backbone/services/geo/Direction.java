@@ -71,10 +71,5 @@ public enum Direction
 	{
 		return codeDirectionMap.get(code);
 	}
-	
-	public static void main(String[] args)
-	{
-		System.out.println(Direction.parse("N").name());
-	}
 }
 
