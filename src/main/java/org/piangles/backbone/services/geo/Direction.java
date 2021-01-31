@@ -18,33 +18,63 @@
  
 package org.piangles.backbone.services.geo;
 
-import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
-public final class GeoLocation implements Serializable 
+public enum Direction
 {
-	private static final long serialVersionUID = 1L;
-	private GeoCoordinate latitude  = null;
-	private GeoCoordinate longitude  = null;
-	
-	public GeoLocation(GeoCoordinate latitude, GeoCoordinate longitude)
+	North(0, "N", 3),
+	East(1, "E", 2),
+	West(2, "W", 1),
+	South(3, "S", 0);
+
+	private static final Map<String, Direction> codeDirectionMap = new HashMap<>();
+	static
 	{
-		this.latitude = latitude;
-		this.longitude = longitude;
+		for (Direction dir : values())
+		{
+			codeDirectionMap.put(dir.getCode(), dir);			
+		}
+	}
+	private int id;
+	private String code;
+	private int oppositeId;
+	
+	private Direction(int id, String code, int oppositeId)
+	{
+		this.id = id;
+		this.code = code;
+		this.oppositeId = oppositeId;
 	}
 
-	public GeoCoordinate getLatitude()
+	public int getId()
 	{
-		return latitude;
-	}
-
-	public GeoCoordinate getLongitude()
-	{
-		return longitude;
+		return id;
 	}
 	
-	@Override
+	public String getCode()
+	{
+		return code;
+	}
+
+	public Direction opposite()
+	{
+		return Direction.values()[oppositeId];
+	}
+
 	public String toString()
 	{
-		return "Location [latitude=" + latitude + ", longitude=" + longitude + "]";
+		return code;
+	}
+	
+	public static Direction parse(String code)
+	{
+		return codeDirectionMap.get(code);
+	}
+	
+	public static void main(String[] args)
+	{
+		System.out.println(Direction.parse("N").name());
 	}
 }
+

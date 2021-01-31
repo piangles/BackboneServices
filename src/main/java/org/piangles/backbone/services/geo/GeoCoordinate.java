@@ -25,8 +25,6 @@ import java.text.ParseException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.piangles.core.util.Direction;
-
 public final class GeoCoordinate implements Serializable
 {
 	private static final long serialVersionUID = 1L;
