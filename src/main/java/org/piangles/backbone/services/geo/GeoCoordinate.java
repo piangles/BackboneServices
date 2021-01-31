@@ -21,10 +21,7 @@ package org.piangles.backbone.services.geo;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
-import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -59,8 +56,7 @@ public final class GeoCoordinate implements Serializable
 	 * 14               1.0   nanometer     Your fingernail grows about this far in one second.
 	 * 15               0.1   nanometer     An atom. An atom! What are you mapping?
 	 */
-	public static final int DEFAULT_SCALE = 5;
-	public static final String DECIMAL_FORMAT = "#.#####";
+	public static final int DEFAULT_SCALE = 5; ///Best choice is one of 4,5 or 6 
 
 	private static final int MINUTES = 60;
 	private static final BigDecimal MINUTES_BIGDECIMAL = BigDecimal.valueOf(MINUTES);
@@ -118,9 +114,20 @@ public final class GeoCoordinate implements Serializable
 		this.minutes = minutes;
 		this.seconds = seconds;
 		this.direction = direction;
+		
+		if (direction == Direction.North || direction == Direction.South)
+		{
+			latitude = true;
+		}
+		else
+		{
+			latitude = false;
+		}
+		longitude = !latitude;
 
 		//Convert to DD Format
-		this.decimalValue = (double)degrees + ((double)minutes / MINUTES) + ((double)seconds / SECONDS);
+		int southOrWest = (direction == Direction.South || direction == Direction.West)? -1 : 1;
+		this.decimalValue = southOrWest * ((double)degrees + ((double)minutes / MINUTES) + ((double)seconds / SECONDS));
 		this.decimalValue = getDecimalValue(DEFAULT_SCALE);
 		
 		initRepresentations();
@@ -189,9 +196,6 @@ public final class GeoCoordinate implements Serializable
 			String dirCode = dmsMatcher.group(4);
 			Direction direction = Direction.parse(dirCode);
 
-			DecimalFormat formatter = new DecimalFormat(DECIMAL_FORMAT, DecimalFormatSymbols.getInstance(Locale.ENGLISH));
-			formatter.setRoundingMode(RoundingMode.DOWN);
-
 			geoCoordinate = new GeoCoordinate(degrees, minutes, seconds, direction);
 		}
 		else
@@ -206,6 +210,11 @@ public final class GeoCoordinate implements Serializable
 	public boolean equals(Object obj)
 	{
 		GeoCoordinate that = (GeoCoordinate)obj;
+		return this.decimalValue == that.decimalValue;
+	}
+
+	public boolean equalsApproximate(GeoCoordinate that)
+	{
 		return this.dmsRepresentation.equals(that.dmsRepresentation);
 	}
 
@@ -217,7 +226,7 @@ public final class GeoCoordinate implements Serializable
 	
 	private void initRepresentations()
 	{
-		ddRepresentation = String.format("%f%s", decimalValue, DEGREES_SYMBOL);
+		ddRepresentation = String.format("%s%s", decimalValue, DEGREES_SYMBOL);
 		dmsRepresentation = String.format("%d%s %d%s %d%s %s", degrees, DEGREES_SYMBOL, minutes, MINUTES_SYMBOL, seconds, SECONDS_SYMBOL, direction);
 	}
 }
