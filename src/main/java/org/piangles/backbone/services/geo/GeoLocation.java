@@ -19,13 +19,24 @@
 package org.piangles.backbone.services.geo;
 
 import java.io.Serializable;
+import java.text.ParseException;
 
 public final class GeoLocation implements Serializable 
 {
 	private static final long serialVersionUID = 1L;
 	private GeoCoordinate latitude  = null;
 	private GeoCoordinate longitude  = null;
-	
+
+	public GeoLocation(double latitude, double longitude)
+	{
+		this(new GeoCoordinate(latitude, true), new GeoCoordinate(longitude, false));
+	}
+
+	public GeoLocation(String latitude, String longitude) throws ParseException
+	{
+		this(GeoCoordinate.parse(latitude), GeoCoordinate.parse(longitude));
+	}
+
 	public GeoLocation(GeoCoordinate latitude, GeoCoordinate longitude)
 	{
 		this.latitude = latitude;
