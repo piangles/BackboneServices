@@ -32,11 +32,6 @@ public final class PhysicalAddress implements Serializable
 	private ZipCode zipCode; //12345 and 12345-6789 for USA need to think for Canada
 	private String country;
 	
-	public PhysicalAddress()
-	{
-		
-	}
-
 	public PhysicalAddress(String addressLine1, String addressLine2, String city, String state, ZipCode zipCode, String country)
 	{
 		this.addressLine1 = addressLine1;
@@ -133,5 +128,10 @@ public final class PhysicalAddress implements Serializable
 	public String getCountry()
 	{
 		return country;
+	}
+	
+	public boolean isValid()
+	{
+		return false;
 	}
 }

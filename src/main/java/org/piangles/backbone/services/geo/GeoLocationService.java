@@ -22,8 +22,10 @@ public interface GeoLocationService
 {
 	public static final String NAME = GeoLocationService.class.getSimpleName();
 	
-	public GeoLocation getLocationFromIPAddress(String ipAddress) throws GeoLocationException;
-	public GeoLocation getLocationFromPhysicalAddress(PhysicalAddress physicalAddress) throws GeoLocationException;
-	public GeoLocation getLocationFromZipCode(ZipCode zipCode) throws GeoLocationException;
+	public boolean isValid(GeoLocation geoLocation) throws GeoLocationException;
+	public GeoLocation getGeoLocation(String ipAddress) throws GeoLocationException;
+	public GeoLocation getGeoLocation(PhysicalAddress physicalAddress) throws GeoLocationException;
+	public PhysicalAddress getPhysicalAddressFromGeoLocation(GeoLocation geoLocation) throws GeoLocationException;
+	public GeoLocation getGeoLocation(ZipCode zipCode) throws GeoLocationException;
 	public GeoLocation findCenterOf(GeoLocation...geoLocations) throws GeoLocationException;
 }
