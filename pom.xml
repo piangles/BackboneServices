@@ -149,7 +149,7 @@
 			</plugin>
 		</plugins>
 
-		<finalName>BackboneServices-{version}</finalName>
+		<finalName>BackboneServices-${version}</finalName>
 	</build>
 
 </project>
