@@ -26,20 +26,27 @@ public final class Identifier implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 	
+	private String type = null;
 	private String value = null;
 	private long generatedTimeStamp;
 	private Date validTillDate = null; //null implies perpetual
 
-	public Identifier(String value, long generatedTimeStamp)
+	public Identifier(String type, String value, long generatedTimeStamp)
 	{
-		this(value, generatedTimeStamp, null);
+		this(type, value, generatedTimeStamp, null);
 	}
 
-	public Identifier(String value, long generatedTimeStamp, Date validTillDate)
+	public Identifier(String type, String value, long generatedTimeStamp, Date validTillDate)
 	{
+		this.type = type;
 		this.value = value;
 		this.generatedTimeStamp = generatedTimeStamp;
 		this.validTillDate = validTillDate;
+	}
+	
+	public String getType()
+	{
+		return type;
 	}
 
 	public String getValue()
@@ -56,10 +63,15 @@ public final class Identifier implements Serializable
 	{
 		return validTillDate;
 	}
+	
+	public boolean isPerpetual()
+	{
+		return false;
+	}
 
 	@Override
 	public String toString()
 	{
-		return "Identifier [value=" + value + ", generatedTimeStamp=" + generatedTimeStamp + ", validTillDate=" + validTillDate + "]";
+		return "Identifier [type=" + type + ", value=" + value + ", generatedTimeStamp=" + generatedTimeStamp + ", validTillDate=" + validTillDate + "]";
 	}
 }
