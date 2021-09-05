@@ -28,15 +28,25 @@ public class BasicUserProfile implements Serializable
 	private String firstName = null;
 	private String lastName = null;
 	private String emailId = null;
+	private boolean emailIdVerified = false;
 	private String phoneNo = null;
+	private boolean phoneNoVerified = false;
 
 	public BasicUserProfile(String firstName, String lastName, String emailId, String phoneNo)
+	{
+		this(firstName, lastName, emailId, false, phoneNo, false);
+	}
+
+	public BasicUserProfile(String firstName, String lastName, String emailId, boolean emailIdVerified, String phoneNo, boolean phoneNoVerified)
 	{
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailId = emailId;
+		this.emailIdVerified = emailIdVerified;
 		this.phoneNo = phoneNo;
+		this.phoneNoVerified = phoneNoVerified;
 	}
+
 
 	public String getFirstName()
 	{
@@ -53,8 +63,18 @@ public class BasicUserProfile implements Serializable
 		return emailId;
 	}
 	
+	public boolean isEmailIdVerified()
+	{
+		return emailIdVerified;
+	}
+
 	public String getPhoneNo()
 	{
 		return phoneNo;
+	}
+
+	public boolean isPhoneNoVerified()
+	{
+		return phoneNoVerified;
 	}
 }
