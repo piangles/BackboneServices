@@ -23,14 +23,14 @@ public interface AuthenticationService
 {
 	public static final String NAME = AuthenticationService.class.getSimpleName();
 	
-	public AuthenticationResponse createAuthenticationEntry(AuthenticationType type, String userId, Credential credential) throws AuthenticationException;
+	public AuthenticationResponse createAuthenticationEntry(AuthenticationType type, Credential credential) throws AuthenticationException;
 	
 	public AuthenticationResponse authenticate(AuthenticationType type, Credential credential) throws AuthenticationException;
 
 	/**
 	 * This will be either an loginId, emailId or phoneNo.
 	 */
-	public boolean generateResetToken(String loginId) throws AuthenticationException;
+	public AuthenticationResponse generateResetToken(String loginId) throws AuthenticationException;
 	
 	public AuthenticationResponse validatePasswordStrength(String password) throws AuthenticationException;
 

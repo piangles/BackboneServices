@@ -27,6 +27,7 @@ public final class AuthenticationResponse implements Serializable
 	private static final long serialVersionUID = 1L;
 
 	private String userId = null;
+	private String token = null;
 	private boolean validatedByToken = false;
 	private int noOfAttemptsRemaining = 0;
 
@@ -37,6 +38,12 @@ public final class AuthenticationResponse implements Serializable
 	public AuthenticationResponse(boolean requestSuccessful)
 	{
 		this.requestSuccessful = requestSuccessful;
+	}
+
+	public AuthenticationResponse(String token)
+	{
+		this.requestSuccessful = true;
+		this.token = token;
 	}
 
 	public AuthenticationResponse(String userId, boolean validatedByToken)
@@ -63,6 +70,11 @@ public final class AuthenticationResponse implements Serializable
 	public String getUserId()
 	{
 		return userId;
+	}
+
+	public String getToken()
+	{
+		return token;
 	}
 
 	public boolean isRequestSuccessful()
