@@ -19,9 +19,13 @@
  
 package org.piangles.backbone.services.id;
 
+import java.util.List;
+
 public interface IdService
 {
 	public static final String NAME = IdService.class.getSimpleName();
 	
 	public Identifier getIdentifier(String idType) throws IdException;
+	
+	public List<Identifier> getIdentifiers(String idType, int count) throws IdException;
 }
