@@ -19,11 +19,11 @@
  
 package org.piangles.backbone.services.prefs;
 
-public interface UserPreferenceService
+public interface UserPreferencesService
 {
-	public static final String NAME = UserPreferenceService.class.getSimpleName();
+	public static final String NAME = UserPreferencesService.class.getSimpleName();
 	
-	public UserPreference retrieveUserPreference(String userId) throws UserPreferenceException;
+	public UserPreferences retrieveUserPreference(String userId) throws UserPreferencesException;
 	
-	public void persistUserPreference(String userId, UserPreference prefs) throws UserPreferenceException;
+	public void persistUserPreference(String userId, UserPreferences prefs) throws UserPreferencesException;
 }

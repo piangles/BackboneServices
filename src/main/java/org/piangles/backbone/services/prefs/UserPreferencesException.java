@@ -19,60 +19,22 @@
  
 package org.piangles.backbone.services.prefs;
 
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
-
-public final class UserPreference implements Serializable
+public class UserPreferencesException extends Exception
 {
 	private static final long serialVersionUID = 1L;
 
-	private String userId;
-	private Map<String, Object> nvPair = null;
-
-	public UserPreference()
+	public UserPreferencesException(String message)
 	{
+		super(message);
 	}
 
-	public UserPreference(String userId)
+	public UserPreferencesException(String message, Throwable cause)
 	{
-		this(userId, new HashMap<String, Object>());
+		super(message, cause);
 	}
 
-	public UserPreference(String userId, Map<String, Object> nvPair)
+	public UserPreferencesException(Throwable cause)
 	{
-		this.userId = userId;
-		this.nvPair = nvPair;
-	}
-
-	public String getUserId()
-	{
-		return userId;
-	}
-	
-	public String getValue(String name)
-	{
-		return (String)nvPair.get(name);
-	}
-
-	public void setValue(String name, String value)
-	{
-		nvPair.put(name, value);
-	}
-
-	public Map<String,Object> getNVPair()
-	{
-		return nvPair;
-	}
-
-	public boolean isEmpty()
-	{
-		return nvPair.isEmpty();
-	}
-
-	@Override
-	public String toString()
-	{
-		return "UserPreference [userId=" + userId + ", nvPair=" + nvPair + "]";
+		super(cause);
 	}
 }
