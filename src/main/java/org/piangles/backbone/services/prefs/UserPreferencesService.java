@@ -23,7 +23,7 @@ public interface UserPreferencesService
 {
 	public static final String NAME = UserPreferencesService.class.getSimpleName();
 	
-	public UserPreferences retrieveUserPreference(String userId) throws UserPreferencesException;
+	public UserPreferences retrieveUserPreferences(String userId) throws UserPreferencesException;
 	
-	public void persistUserPreference(String userId, UserPreferences prefs) throws UserPreferencesException;
+	public void persistUserPreferences(String userId, UserPreferences prefs) throws UserPreferencesException;
 }
