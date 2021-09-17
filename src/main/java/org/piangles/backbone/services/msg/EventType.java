@@ -37,5 +37,5 @@ package org.piangles.backbone.services.msg;
 public enum EventType
 {
 	Control,
-	Notification
+	ApplicationRelated
 }

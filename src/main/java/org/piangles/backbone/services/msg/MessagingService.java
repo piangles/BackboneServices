@@ -25,8 +25,8 @@ public interface MessagingService
 {
 	public static final String NAME = MessagingService.class.getSimpleName();
 	
-	public void createControlTopicForUser(String userId) throws MessagingException;
-	public List<Topic> getTopicsForUser(String userId) throws MessagingException;
+	public void createTopicFor(String entityType, String entityId) throws MessagingException;
+	public List<Topic> getTopicsFor(String entityType, String entityId) throws MessagingException;
 
 	public Topic getTopic(String topicName) throws MessagingException;
 	public List<Topic> getTopicsForAliases(List<String> aliases) throws MessagingException;
