@@ -35,18 +35,20 @@ import java.io.Serializable;
  * The Godfather
  * Don Vito Corleone: I'm going to make him an offer he can't refuse.
  */
-public final class ControlDetails implements Serializable
+public final class Control implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
 	
 	/**
 	 * Should be unique across application and correspond to a
-	 * ControlMessageHandler that processes these details
+	 * ControlEventHandler that processes these details
 	 */
 	private String type;
 	
 	private Action action;
+
+	private long expirationTime;
 
 	/**
 	 * The actual content that will need to be interpreted by product as
@@ -58,10 +60,11 @@ public final class ControlDetails implements Serializable
 	 */
 	private String content;
 	
-	public ControlDetails(String type, Action action, String content)
+	public Control(String type, Action action, long expirationTime, String content)
 	{
 		this.type = type;
 		this.action = action;
+		this.expirationTime = expirationTime;
 		this.content = content;
 	}
 
@@ -74,6 +77,11 @@ public final class ControlDetails implements Serializable
 	{
 		return action;
 	}
+	
+	public long getExpirationTime()
+	{
+		return expirationTime;
+	}
 
 	public String getContent()
 	{
@@ -83,6 +91,6 @@ public final class ControlDetails implements Serializable
 	@Override
 	public String toString()
 	{
-		return "ControlDetails [type=" + type + ", action=" + action + ", content=" + content + "]";
+		return "ControlDetails [type=" + type + ", action=" + action + ", expirationTime=" + expirationTime + ", content=" + content + "]";
 	}
 }
