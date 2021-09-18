@@ -38,7 +38,7 @@ public final class Event implements Serializable
 
 	private UUID traceId = null;
 	
-	private EventType type;
+	private String eventType;
 	
 	/**
 	 * This uniquely identifies the message. And will override any previous message with
@@ -58,17 +58,17 @@ public final class Event implements Serializable
 	 */
 	private Object payload;
 
-	public Event(EventType type, String primaryKey, Object payload)
+	public Event(String eventType, String primaryKey, Object payload)
 	{
-		this.type = type;
+		this.eventType = eventType;
 		this.primaryKey = primaryKey;
 		this.payloadType = payload.getClass().getName();
 		this.payload = payload;
 	}
 
-	public EventType getType()
+	public String getEventType()
 	{
-		return type;
+		return eventType;
 	}
 
 	public String getPrimaryKey()
@@ -99,6 +99,6 @@ public final class Event implements Serializable
 	@Override
 	public String toString()
 	{
-		return "Event [traceId=" + traceId + ", type=" + type + ", primaryKey=" + primaryKey + ", payloadType=" + payloadType + ", payload=" + payload + "]";
+		return "Event [traceId=" + traceId + ", eventType=" + eventType + ", primaryKey=" + primaryKey + ", payloadType=" + payloadType + ", payload=" + payload + "]";
 	}
 }

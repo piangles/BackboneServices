@@ -30,8 +30,7 @@ package org.piangles.backbone.services.msg;
  * 
  * Add => Subscribe to a new Topic
  * Remove => Unsubscribe from an existing Topic
- * Invite => Pass the request to UI and notify the user an invitation to be added.
- * Inform => A simple notification to display for the user much like a balloon notification.
+ * Alert => A simple notification to display for the user much like a balloon notification.
  * 
  * The Magnificent Seven (1960)
  * Chris: You forget one thing. We took a contract.
@@ -48,6 +47,8 @@ public enum Action
 {
 	Add,
 	Remove,
-	Invite,
-	Inform
+	Alert,
+	Start,
+	Pause,
+	Stop
 }
