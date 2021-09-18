@@ -40,8 +40,10 @@ public class Topic implements Serializable
 	
 	public static int CUSTOM_PARTIONED = -1;
 	private String topicName;
+	private String purpose;
 	private int partition;
-	private boolean compacted;
+	private boolean compacted = false;
+	private boolean readEarliest = false;
 	
 	/**
 	 * Created a topic which is not partitioned or compacted  
@@ -56,16 +58,29 @@ public class Topic implements Serializable
 		this(topicName, partition, false);
 	}
 
-	public Topic(String topicName, int partition, boolean compacted)
+	public Topic(String topicName, int partition, boolean readEarliest)
 	{
 		this.topicName = topicName;
 		this.partition = partition;
+		this.readEarliest = readEarliest;
+	}
+
+	public Topic(String topicName, String purpose, int partition, boolean compacted, boolean earliest)
+	{
+		this.topicName = topicName;
+		this.purpose = purpose;
+		this.partition = partition;
 		this.compacted = compacted;
 	}
-	
+
 	public String getTopicName()
 	{
 		return topicName;
+	}
+	
+	public String getPurpose()
+	{
+		return purpose;
 	}
 	
 	public int getPartition()
@@ -81,6 +96,11 @@ public class Topic implements Serializable
 	public boolean isCompacted()
 	{
 		return compacted;
+	}
+	
+	public boolean shouldReadEarliest()
+	{
+		return readEarliest;
 	}
 
 	/**
@@ -120,6 +140,6 @@ public class Topic implements Serializable
 	@Override
 	public String toString()
 	{
-		return "Topic [topicName=" + topicName + ", partition=" + partition + ", compacted=" + compacted + "]";
+		return "Topic [topicName=" + topicName + ", partition=" + partition + ", compacted=" + compacted + ", readEarliest=" + readEarliest + "]";
 	}
 }
