@@ -36,6 +36,8 @@ public final class Event implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
+	private long emittedTime;
+	
 	private UUID traceId = null;
 	
 	/**
@@ -65,10 +67,23 @@ public final class Event implements Serializable
 
 	public Event(String eventType, String primaryKey, Object payload)
 	{
+		this.emittedTime = System.currentTimeMillis();
+		this.traceId = UUID.randomUUID();
+		
 		this.eventType = eventType;
 		this.primaryKey = primaryKey;
 		this.payloadType = payload.getClass().getName();
 		this.payload = payload;
+	}
+	
+	public long getEmittedTime()
+	{
+		return emittedTime;
+	}
+
+	public UUID getTraceId()
+	{
+		return traceId;
 	}
 
 	public String getEventType()
@@ -104,6 +119,6 @@ public final class Event implements Serializable
 	@Override
 	public String toString()
 	{
-		return "Event [traceId=" + traceId + ", eventType=" + eventType + ", primaryKey=" + primaryKey + ", payloadType=" + payloadType + ", payload=" + payload + "]";
+		return "Event [emittedTime=" + emittedTime + ", traceId=" + traceId + ", eventType=" + eventType + ", primaryKey=" + primaryKey + ", payloadType=" + payloadType + ", payload=" + payload + "]";
 	}
 }
