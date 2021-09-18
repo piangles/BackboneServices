@@ -29,7 +29,7 @@ public interface MessagingService
 	public List<Topic> getTopicsFor(String entityType, String entityId) throws MessagingException;
 
 	public Topic getTopic(String topicName) throws MessagingException;
-	public List<Topic> getTopicsForAliases(List<String> aliases) throws MessagingException;
+	public List<Topic> getTopicsForAlias(String alias) throws MessagingException;
 	
 	public void publish(String topicName, Event event) throws MessagingException;
 	public void fanOut(FanoutRequest fanoutRequest) throws MessagingException;
