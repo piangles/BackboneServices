@@ -38,6 +38,11 @@ public final class Event implements Serializable
 
 	private UUID traceId = null;
 	
+	/**
+	 * eventType specifies which payloadType. The application/product can specify  
+	 * application related eventTypes here.
+	 * Note: eventType "Control" is a reserved keyword. 
+	 */
 	private String eventType;
 	
 	/**
