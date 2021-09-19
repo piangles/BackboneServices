@@ -65,12 +65,13 @@ public class Topic implements Serializable
 		this.readEarliest = readEarliest;
 	}
 
-	public Topic(String topicName, String purpose, int partition, boolean compacted, boolean earliest)
+	public Topic(String topicName, String purpose, int partition, boolean compacted, boolean readEarliest)
 	{
 		this.topicName = topicName;
 		this.purpose = purpose;
 		this.partition = partition;
 		this.compacted = compacted;
+		this.readEarliest = readEarliest;
 	}
 
 	public String getTopicName()
