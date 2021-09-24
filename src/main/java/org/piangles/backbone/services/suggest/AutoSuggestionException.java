@@ -19,7 +19,9 @@
  
 package org.piangles.backbone.services.suggest;
 
-public class AutoSuggestionException extends Exception
+import org.piangles.core.expt.ServiceException;
+
+public class AutoSuggestionException extends ServiceException
 {
 	private static final long serialVersionUID = 1L;
 

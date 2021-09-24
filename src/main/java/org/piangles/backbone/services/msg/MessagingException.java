@@ -19,8 +19,12 @@
  
 package org.piangles.backbone.services.msg;
 
-public class MessagingException extends Exception
+import org.piangles.core.expt.ServiceException;
+
+public class MessagingException extends ServiceException
 {
+	private static final long serialVersionUID = 1L;
+
 	public MessagingException(String message)
 	{
 		super(message);

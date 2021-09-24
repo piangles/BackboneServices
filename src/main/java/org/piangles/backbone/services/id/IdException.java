@@ -19,8 +19,12 @@
  
 package org.piangles.backbone.services.id;
 
-public class IdException extends Exception
+import org.piangles.core.expt.ServiceException;
+
+public class IdException extends ServiceException
 {
+	private static final long serialVersionUID = 1L;
+
 	public IdException(String message)
 	{
 		super(message);

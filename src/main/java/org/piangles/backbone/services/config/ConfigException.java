@@ -19,8 +19,12 @@
  
 package org.piangles.backbone.services.config;
 
-public class ConfigException extends Exception
+import org.piangles.core.expt.ServiceException;
+
+public class ConfigException extends ServiceException
 {
+	private static final long serialVersionUID = 1L;
+
 	public ConfigException(String message)
 	{
 		super(message);

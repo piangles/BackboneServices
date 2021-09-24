@@ -19,7 +19,9 @@
  
 package org.piangles.backbone.services.profile;
 
-public class UserProfileException extends Exception
+import org.piangles.core.expt.ServiceException;
+
+public class UserProfileException extends ServiceException
 {
 	private static final long serialVersionUID = 1L;
 

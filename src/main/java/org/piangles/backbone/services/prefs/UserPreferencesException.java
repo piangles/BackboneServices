@@ -19,7 +19,9 @@
  
 package org.piangles.backbone.services.prefs;
 
-public class UserPreferencesException extends Exception
+import org.piangles.core.expt.ServiceException;
+
+public class UserPreferencesException extends ServiceException
 {
 	private static final long serialVersionUID = 1L;
 

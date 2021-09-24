@@ -19,8 +19,12 @@
  
 package org.piangles.backbone.services.geo;
 
-public class GeoLocationException extends Exception
+import org.piangles.core.expt.ServiceException;
+
+public class GeoLocationException extends ServiceException
 {
+	private static final long serialVersionUID = 1L;
+
 	public GeoLocationException(String message)
 	{
 		super(message);

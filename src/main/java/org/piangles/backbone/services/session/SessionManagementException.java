@@ -19,8 +19,12 @@
  
 package org.piangles.backbone.services.session;
 
-public class SessionManagementException extends Exception
+import org.piangles.core.expt.ServiceException;
+
+public class SessionManagementException extends ServiceException
 {
+	private static final long serialVersionUID = 1L;
+
 	public SessionManagementException(String message)
 	{
 		super(message);
