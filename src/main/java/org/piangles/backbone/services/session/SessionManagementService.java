@@ -32,4 +32,6 @@ public interface SessionManagementService
 	public boolean isValid(String userId, String sessionId) throws SessionManagementException;
 	
 	public void makeLastAccessedCurrent(String userId, String sessionId) throws SessionManagementException;
+	
+	public void markForUnregister(String userId, String sessionId) throws SessionManagementException;
 }
