@@ -20,6 +20,7 @@
 package org.piangles.backbone.services.auth;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public final class AuthenticationResponse implements Serializable
@@ -33,19 +34,28 @@ public final class AuthenticationResponse implements Serializable
 
 	private boolean requestSuccessful = false;
 	private FailureReason failureReason = null;
-	private List<String> failureMessages = null;	
+	private List<String> failureMessages = new ArrayList<>();	
 
 	public AuthenticationResponse(boolean requestSuccessful)
 	{
 		this.requestSuccessful = requestSuccessful;
 	}
 
+	/**
+	 * Created only in one place when Token is generated.
+	 * @param token
+	 */
 	public AuthenticationResponse(String token)
 	{
 		this.requestSuccessful = true;
 		this.token = token;
 	}
 
+	/**
+	 * When authentication is sucessful.
+	 * @param userId
+	 * @param validatedByToken
+	 */
 	public AuthenticationResponse(String userId, boolean validatedByToken)
 	{
 		this.requestSuccessful = true;
@@ -59,14 +69,12 @@ public final class AuthenticationResponse implements Serializable
 		this.failureReason = failureReason;
 		this.noOfAttemptsRemaining = noOfAttemptsRemaining;
 	}
-
-	public AuthenticationResponse(FailureReason failureReason, List<String> failureMessages)
+	
+	public void addFailureMessage(String failureMessage)
 	{
-		this.requestSuccessful = false;
-		this.failureReason = failureReason;
-		this.failureMessages = failureMessages;
+		failureMessages.add(failureMessage);
 	}
-
+	
 	public String getUserId()
 	{
 		return userId;
