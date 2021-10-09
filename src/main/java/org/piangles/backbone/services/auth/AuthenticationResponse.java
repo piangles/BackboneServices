@@ -34,12 +34,23 @@ public final class AuthenticationResponse implements Serializable
 
 	private boolean requestSuccessful = false;
 	private FailureReason failureReason = null;
-	private List<String> failureMessages = new ArrayList<>();	
+	private List<String> failureMessages = new ArrayList<>();
+	private long lastLoggedInTimestamp = 0L;
 
-	public AuthenticationResponse(boolean requestSuccessful)
+
+	/**
+	 * When authentication is sucessful.
+	 * @param userId
+	 * @param validatedByToken
+	 */
+	public AuthenticationResponse(String userId, boolean validatedByToken, long lastLoggedInTimestamp)
 	{
-		this.requestSuccessful = requestSuccessful;
+		this.requestSuccessful = true;
+		this.userId = userId;
+		this.validatedByToken = validatedByToken;
+		this.lastLoggedInTimestamp = lastLoggedInTimestamp;
 	}
+
 
 	/**
 	 * Created only in one place when Token is generated.
@@ -51,16 +62,10 @@ public final class AuthenticationResponse implements Serializable
 		this.token = token;
 	}
 
-	/**
-	 * When authentication is sucessful.
-	 * @param userId
-	 * @param validatedByToken
-	 */
-	public AuthenticationResponse(String userId, boolean validatedByToken)
+
+	public AuthenticationResponse(boolean requestSuccessful)
 	{
-		this.requestSuccessful = true;
-		this.userId = userId;
-		this.validatedByToken = validatedByToken;
+		this.requestSuccessful = requestSuccessful;
 	}
 
 	public AuthenticationResponse(FailureReason failureReason, int noOfAttemptsRemaining)
@@ -113,6 +118,11 @@ public final class AuthenticationResponse implements Serializable
 	public boolean IsValidatedByToken()
 	{
 		return validatedByToken;
+	}
+	
+	public long getLastLoggedInTimestamp()
+	{
+		return lastLoggedInTimestamp;
 	}
 
 	@Override

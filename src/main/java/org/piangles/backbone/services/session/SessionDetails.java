@@ -27,21 +27,20 @@ public class SessionDetails implements Serializable
 	
 	private String userId = null;
 	private String sessionId = null;
+	private long inactivityExpiryTimeInSeconds = 0L; 
 	private long createdTS;
 	private long lastAccessedTS;
 	
-	public SessionDetails(String userId, String sessionId)
+	public SessionDetails(String userId, String sessionId, long inactivityExpiryTimeInSeconds)
 	{
-		this.userId = userId;
-		this.sessionId = sessionId;
-		this.createdTS = System.currentTimeMillis();
-		this.lastAccessedTS = createdTS;
+		this(userId, sessionId, inactivityExpiryTimeInSeconds, System.currentTimeMillis(), System.currentTimeMillis());
 	}
 
-	public SessionDetails(String userId, String sessionId, long createdTS, long lastAccessedTS)
+	public SessionDetails(String userId, String sessionId, long inactivityExpiryTimeInSeconds, long createdTS, long lastAccessedTS)
 	{
 		this.userId = userId;
 		this.sessionId = sessionId;
+		this.inactivityExpiryTimeInSeconds = inactivityExpiryTimeInSeconds;
 		this.createdTS = createdTS;
 		this.lastAccessedTS = lastAccessedTS;
 	}
@@ -55,6 +54,11 @@ public class SessionDetails implements Serializable
 	{
 		return sessionId;
 	}
+	
+	public long getInactivityExpiryTimeInSeconds()
+	{
+		return inactivityExpiryTimeInSeconds;
+	}
 
 	public long getCreatedTS()
 	{
@@ -65,7 +69,7 @@ public class SessionDetails implements Serializable
 	{
 		return lastAccessedTS;
 	}
-	
+
 	public void touch()
 	{
 		this.lastAccessedTS = System.currentTimeMillis();
