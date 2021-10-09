@@ -22,8 +22,6 @@ package org.piangles.backbone.services.msg;
 import java.io.Serializable;
 import java.util.UUID;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * This is the actual message that is sent on the control channel. In the minimum 
  * there will be atleast be one control channel per user. That control channel is
@@ -38,10 +36,8 @@ public final class Event implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
-	@JsonProperty(required = true)
 	private long emittedTime;
 	
-	@JsonProperty(required = true)
 	private UUID traceId = null;
 	
 	/**
@@ -49,28 +45,24 @@ public final class Event implements Serializable
 	 * application related eventTypes here.
 	 * Note: eventType "Control" is a reserved keyword. 
 	 */
-	@JsonProperty(required = true)
 	private String eventType;
 	
 	/**
 	 * This uniquely identifies the message. And will override any previous message with
 	 * the same primaryKey
 	 */
-	@JsonProperty(required = true)
 	private String primaryKey;
 	
 	/**
 	 * This will identify the type of payload and will be useful for deserialization
 	 * message handlers that register for handling this type of payload.
 	 */
-	@JsonProperty(required = true)
 	private String payloadType;
 	
 	/**
 	 * The actual content that will need to be deserialized / decoded to a Java object by
 	 * the ControlMessageHandlers in the Gateway service. 
 	 */
-	@JsonProperty(required = true)
 	private Object payload;
 
 	public Event(String eventType, String primaryKey, Object payload)

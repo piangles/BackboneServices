@@ -18,8 +18,6 @@
  
 package org.piangles.backbone.services.instrument;
 
-import org.piangles.core.util.instrument.Measures;
-
 public interface InstrumentationService
 {
 	public static final String NAME = InstrumentationService.class.getSimpleName();

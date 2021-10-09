@@ -19,7 +19,7 @@
  
 package org.piangles.backbone.services.msg;
 
-import org.piangles.core.expt.ServiceException;
+import org.piangles.backbone.services.ServiceException;
 
 public class MessagingException extends ServiceException
 {

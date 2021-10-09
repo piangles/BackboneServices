@@ -19,7 +19,7 @@
  
 package org.piangles.backbone.services.suggest;
 
-import org.piangles.core.expt.ServiceException;
+import org.piangles.backbone.services.ServiceException;
 
 public class AutoSuggestionException extends ServiceException
 {

@@ -19,7 +19,7 @@
  
 package org.piangles.backbone.services.prefs;
 
-import org.piangles.core.expt.ServiceException;
+import org.piangles.backbone.services.ServiceException;
 
 public class UserPreferencesException extends ServiceException
 {

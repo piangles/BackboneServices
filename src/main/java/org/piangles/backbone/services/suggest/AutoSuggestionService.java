@@ -20,14 +20,12 @@ package org.piangles.backbone.services.suggest;
 
 import java.util.List;
 
-import org.apache.kafka.common.errors.AuthorizationException;
-
 public interface AutoSuggestionService
 {
 	public static final String NAME = AutoSuggestionService.class.getSimpleName();
 	
 	public List<String> getDatasetNames();
-	public SuggestionResponse suggest(SuggestionRequest suggestionRequest) throws AuthorizationException;
-	public void record(UserSelection us) throws AuthorizationException;
+	public SuggestionResponse suggest(SuggestionRequest suggestionRequest) throws AutoSuggestionException;
+	public void record(UserSelection us) throws AutoSuggestionException;
 	public void forceRefresh(String dataset);
 }

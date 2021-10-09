@@ -22,8 +22,6 @@ package org.piangles.backbone.services.suggest;
 import java.io.Serializable;
 import java.util.List;
 
-import org.piangles.core.structures.Suggestion;
-
 public final class SuggestionResponse implements Serializable
 {
 	private static final long serialVersionUID = 1L;
