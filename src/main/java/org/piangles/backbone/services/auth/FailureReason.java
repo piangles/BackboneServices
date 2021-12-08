@@ -27,5 +27,6 @@ public enum FailureReason
 	InvalidSession,
 	AccountDisabled,
 	TooManyAttempts,
+	MaximumSessionCountReached,
 	PasswordDoesNotMeetStrength;
 }
