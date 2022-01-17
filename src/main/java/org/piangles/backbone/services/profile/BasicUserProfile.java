@@ -31,13 +31,14 @@ public class BasicUserProfile implements Serializable
 	private boolean emailIdVerified = false;
 	private String phoneNo = null;
 	private boolean phoneNoVerified = false;
+	private boolean mfaEnabled = false;
 
 	public BasicUserProfile(String firstName, String lastName, String emailId, String phoneNo)
 	{
-		this(firstName, lastName, emailId, false, phoneNo, false);
+		this(firstName, lastName, emailId, false, phoneNo, false, false);
 	}
 
-	public BasicUserProfile(String firstName, String lastName, String emailId, boolean emailIdVerified, String phoneNo, boolean phoneNoVerified)
+	public BasicUserProfile(String firstName, String lastName, String emailId, boolean emailIdVerified, String phoneNo, boolean phoneNoVerified, boolean mfaEnabled)
 	{
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -45,8 +46,8 @@ public class BasicUserProfile implements Serializable
 		this.emailIdVerified = emailIdVerified;
 		this.phoneNo = phoneNo;
 		this.phoneNoVerified = phoneNoVerified;
+		this.mfaEnabled = mfaEnabled;
 	}
-
 
 	public String getFirstName()
 	{
@@ -76,5 +77,10 @@ public class BasicUserProfile implements Serializable
 	public boolean isPhoneNoVerified()
 	{
 		return phoneNoVerified;
+	}
+	
+	public boolean isMFAEnabled()
+	{
+		return mfaEnabled;
 	}
 }
