@@ -23,6 +23,8 @@ public interface AuthenticationService
 {
 	public static final String NAME = AuthenticationService.class.getSimpleName();
 	
+	public boolean doesAuthenticationEntryExist(String userId) throws AuthenticationException;
+	
 	public AuthenticationResponse createAuthenticationEntry(AuthenticationType type, Credential credential) throws AuthenticationException;
 	
 	public AuthenticationResponse authenticate(AuthenticationType type, Credential credential) throws AuthenticationException;
