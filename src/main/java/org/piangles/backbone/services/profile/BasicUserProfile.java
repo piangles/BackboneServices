@@ -25,6 +25,7 @@ public class BasicUserProfile implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
+	private String userId = null;
 	private String firstName = null;
 	private String lastName = null;
 	private String emailId = null;
@@ -35,11 +36,12 @@ public class BasicUserProfile implements Serializable
 
 	public BasicUserProfile(String firstName, String lastName, String emailId, String phoneNo)
 	{
-		this(firstName, lastName, emailId, false, phoneNo, false, false);
+		this(null, firstName, lastName, emailId, false, phoneNo, false, false);
 	}
 
-	public BasicUserProfile(String firstName, String lastName, String emailId, boolean emailIdVerified, String phoneNo, boolean phoneNoVerified, boolean mfaEnabled)
+	public BasicUserProfile(String userId, String firstName, String lastName, String emailId, boolean emailIdVerified, String phoneNo, boolean phoneNoVerified, boolean mfaEnabled)
 	{
+		this.userId = userId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailId = emailId;
@@ -49,6 +51,11 @@ public class BasicUserProfile implements Serializable
 		this.mfaEnabled = mfaEnabled;
 	}
 
+	public String getUserId()
+	{
+		return userId;
+	}
+	
 	public String getFirstName()
 	{
 		return firstName;

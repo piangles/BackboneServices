@@ -28,5 +28,6 @@ public enum FailureReason
 	AccountDisabled,
 	TooManyAttempts,
 	MaximumSessionCountReached,
+	OldPasswordDoesNotMatch,
 	PasswordDoesNotMeetStrength;
 }
