@@ -27,19 +27,21 @@ public class SessionDetails implements Serializable
 	
 	private String userId = null;
 	private String sessionId = null;
+	private boolean authenticatedByMultiFactor = false;
 	private long inactivityExpiryTimeInSeconds = 0L; 
 	private long createdTS;
 	private long lastAccessedTS;
 	
 	public SessionDetails(String userId, String sessionId, long inactivityExpiryTimeInSeconds)
 	{
-		this(userId, sessionId, inactivityExpiryTimeInSeconds, System.currentTimeMillis(), System.currentTimeMillis());
+		this(userId, sessionId, false, inactivityExpiryTimeInSeconds, System.currentTimeMillis(), System.currentTimeMillis());
 	}
 
-	public SessionDetails(String userId, String sessionId, long inactivityExpiryTimeInSeconds, long createdTS, long lastAccessedTS)
+	public SessionDetails(String userId, String sessionId, boolean authenticatedByMultiFactor, long inactivityExpiryTimeInSeconds, long createdTS, long lastAccessedTS)
 	{
 		this.userId = userId;
 		this.sessionId = sessionId;
+		this.authenticatedByMultiFactor = authenticatedByMultiFactor;
 		this.inactivityExpiryTimeInSeconds = inactivityExpiryTimeInSeconds;
 		this.createdTS = createdTS;
 		this.lastAccessedTS = lastAccessedTS;
@@ -53,6 +55,11 @@ public class SessionDetails implements Serializable
 	public String getSessionId()
 	{
 		return sessionId;
+	}
+	
+	public boolean isAuthenticatedByMultiFactor()
+	{
+		return authenticatedByMultiFactor;
 	}
 	
 	public long getInactivityExpiryTimeInSeconds()
@@ -78,6 +85,7 @@ public class SessionDetails implements Serializable
 	@Override
 	public String toString()
 	{
-		return "SessionDetails [userId=" + userId + ", sessionId=" + sessionId + ", createdTS=" + createdTS + ", lastAccessedTS=" + lastAccessedTS + "]";
+		return "SessionDetails [userId=" + userId + ", sessionId=" + sessionId + ", authenticatedByMultiFactor=" + authenticatedByMultiFactor + ", inactivityExpiryTimeInSeconds="
+				+ inactivityExpiryTimeInSeconds + ", createdTS=" + createdTS + ", lastAccessedTS=" + lastAccessedTS + "]";
 	}
 }
