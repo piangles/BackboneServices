@@ -56,9 +56,10 @@ public final class AuthenticationResponse implements Serializable
 	 * Created only in one place when Token is generated.
 	 * @param token
 	 */
-	public AuthenticationResponse(String token)
+	public AuthenticationResponse(String userId, String token)
 	{
 		this.requestSuccessful = true;
+		this.userId = userId;
 		this.token = token;
 	}
 
