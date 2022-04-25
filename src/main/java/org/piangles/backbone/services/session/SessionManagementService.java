@@ -37,6 +37,8 @@ public interface SessionManagementService
 	
 	public void markAuthenticatedByMFA(String userId, String sessionId) throws SessionManagementException;
 	
+	public void markAuthenticatedByToken(String userId, String sessionId) throws SessionManagementException;
+	
 	public void makeLastAccessedCurrent(String userId, String sessionId) throws SessionManagementException;
 	
 	public void markForUnregister(String userId, String sessionId) throws SessionManagementException;
