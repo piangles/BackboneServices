@@ -27,20 +27,22 @@ public class SessionDetails implements Serializable
 	
 	private String userId = null;
 	private String sessionId = null;
+	private String authenticationState = null;
 	private boolean authenticatedByMultiFactor = false;
 	private long inactivityExpiryTimeInSeconds = 0L; 
 	private long createdTS;
 	private long lastAccessedTS;
 	
-	public SessionDetails(String userId, String sessionId, long inactivityExpiryTimeInSeconds)
+	public SessionDetails(String userId, String sessionId, String authenticationState, long inactivityExpiryTimeInSeconds)
 	{
-		this(userId, sessionId, false, inactivityExpiryTimeInSeconds, System.currentTimeMillis(), System.currentTimeMillis());
+		this(userId, sessionId, authenticationState, false, inactivityExpiryTimeInSeconds, System.currentTimeMillis(), System.currentTimeMillis());
 	}
 
-	public SessionDetails(String userId, String sessionId, boolean authenticatedByMultiFactor, long inactivityExpiryTimeInSeconds, long createdTS, long lastAccessedTS)
+	public SessionDetails(String userId, String sessionId, String authenticationState, boolean authenticatedByMultiFactor, long inactivityExpiryTimeInSeconds, long createdTS, long lastAccessedTS)
 	{
 		this.userId = userId;
 		this.sessionId = sessionId;
+		this.authenticationState = authenticationState;
 		this.authenticatedByMultiFactor = authenticatedByMultiFactor;
 		this.inactivityExpiryTimeInSeconds = inactivityExpiryTimeInSeconds;
 		this.createdTS = createdTS;
@@ -55,6 +57,11 @@ public class SessionDetails implements Serializable
 	public String getSessionId()
 	{
 		return sessionId;
+	}
+	
+	public String getAuthenticationState()
+	{
+		return authenticationState;
 	}
 	
 	public boolean isAuthenticatedByMultiFactor()
@@ -85,7 +92,7 @@ public class SessionDetails implements Serializable
 	@Override
 	public String toString()
 	{
-		return "SessionDetails [userId=" + userId + ", sessionId=" + sessionId + ", authenticatedByMultiFactor=" + authenticatedByMultiFactor + ", inactivityExpiryTimeInSeconds="
-				+ inactivityExpiryTimeInSeconds + ", createdTS=" + createdTS + ", lastAccessedTS=" + lastAccessedTS + "]";
+		return "SessionDetails [userId=" + userId + ", sessionId=" + sessionId + ", authenticationState=" + authenticationState + ", authenticatedByMultiFactor=" + authenticatedByMultiFactor
+				+ ", inactivityExpiryTimeInSeconds=" + inactivityExpiryTimeInSeconds + ", createdTS=" + createdTS + ", lastAccessedTS=" + lastAccessedTS + "]";
 	}
 }
