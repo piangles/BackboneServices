@@ -35,10 +35,6 @@ public interface SessionManagementService
 	
 	public void updateAuthenticationState(String userId, String sessionId, String authenticationState) throws SessionManagementException;
 	
-	public void markAuthenticatedByMFA(String userId, String sessionId) throws SessionManagementException;
-	
-	public void markAuthenticatedByToken(String userId, String sessionId) throws SessionManagementException;
-	
 	public void makeLastAccessedCurrent(String userId, String sessionId) throws SessionManagementException;
 	
 	public void markForUnregister(String userId, String sessionId) throws SessionManagementException;

@@ -28,24 +28,20 @@ public class SessionDetails implements Serializable
 	private String userId = null;
 	private String sessionId = null;
 	private String authenticationState = null;
-	private boolean authenticatedByMultiFactor = false;
-	private boolean authenticatedByToken = false;
 	private long inactivityExpiryTimeInSeconds = 0L; 
 	private long createdTS;
 	private long lastAccessedTS;
 	
 	public SessionDetails(String userId, String sessionId, String authenticationState, long inactivityExpiryTimeInSeconds)
 	{
-		this(userId, sessionId, authenticationState, false, false, inactivityExpiryTimeInSeconds, System.currentTimeMillis(), System.currentTimeMillis());
+		this(userId, sessionId, authenticationState, inactivityExpiryTimeInSeconds, System.currentTimeMillis(), System.currentTimeMillis());
 	}
 
-	public SessionDetails(String userId, String sessionId, String authenticationState, boolean authenticatedByMultiFactor, boolean authenticatedByToken, long inactivityExpiryTimeInSeconds, long createdTS, long lastAccessedTS)
+	public SessionDetails(String userId, String sessionId, String authenticationState, long inactivityExpiryTimeInSeconds, long createdTS, long lastAccessedTS)
 	{
 		this.userId = userId;
 		this.sessionId = sessionId;
 		this.authenticationState = authenticationState;
-		this.authenticatedByMultiFactor = authenticatedByMultiFactor;
-		this.authenticatedByToken = authenticatedByToken;
 		this.inactivityExpiryTimeInSeconds = inactivityExpiryTimeInSeconds;
 		this.createdTS = createdTS;
 		this.lastAccessedTS = lastAccessedTS;
@@ -66,16 +62,6 @@ public class SessionDetails implements Serializable
 		return authenticationState;
 	}
 	
-	public boolean isAuthenticatedByMultiFactor()
-	{
-		return authenticatedByMultiFactor;
-	}
-
-	public boolean isAuthenticatedByToken()
-	{
-		return authenticatedByToken;
-	}
-
 	public long getInactivityExpiryTimeInSeconds()
 	{
 		return inactivityExpiryTimeInSeconds;
@@ -99,7 +85,7 @@ public class SessionDetails implements Serializable
 	@Override
 	public String toString()
 	{
-		return "SessionDetails [userId=" + userId + ", sessionId=" + sessionId + ", authenticationState=" + authenticationState + ", authenticatedByMultiFactor=" + authenticatedByMultiFactor +
-				", authenticatedByToken=" + authenticatedByToken + ", inactivityExpiryTimeInSeconds=" + inactivityExpiryTimeInSeconds + ", createdTS=" + createdTS + ", lastAccessedTS=" + lastAccessedTS + "]";
+		return "SessionDetails [userId=" + userId + ", sessionId=" + sessionId + ", authenticationState=" + authenticationState + ", inactivityExpiryTimeInSeconds=" + inactivityExpiryTimeInSeconds
+				+ ", createdTS=" + createdTS + ", lastAccessedTS=" + lastAccessedTS + "]";
 	}
 }
