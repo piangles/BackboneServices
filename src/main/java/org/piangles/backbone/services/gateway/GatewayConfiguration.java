@@ -1,5 +1,7 @@
 package org.piangles.backbone.services.gateway;
 
+import java.io.Serializable;
+
 /**
  * Set the configuration here to overcome Errors like below.
  * 
@@ -11,8 +13,10 @@ package org.piangles.backbone.services.gateway;
  * 
  */
 
-public final class GatewayConfiguration
+public final class GatewayConfiguration implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+	
 	public static String DEFAULT_HOST = "0.0.0.0";
 	public static int DEFAULT_PORT = 80;
 	public static long DEFAULT_IDLE_TIMEOUT = 1 * 60 * 1000; //1 Minute in MilliSeconds
