@@ -19,6 +19,8 @@
  
 package org.piangles.backbone.services.session;
 
+import java.util.List;
+
 public interface SessionManagementService
 {
 	public static final String NAME = SessionManagementService.class.getSimpleName();
@@ -38,4 +40,9 @@ public interface SessionManagementService
 	public void makeLastAccessedCurrent(String userId, String sessionId) throws SessionManagementException;
 	
 	public void markForUnregister(String userId, String sessionId) throws SessionManagementException;
+	
+	//Administrative Functions
+	public List<SessionDetails> getAllSessions(String userId) throws SessionManagementException;
+	
+	public void invalidateAllSessions(String userId) throws SessionManagementException;
 }
