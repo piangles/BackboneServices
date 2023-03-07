@@ -5,7 +5,8 @@
 	<groupId>org.piangles.backbone.services</groupId>
 	<artifactId>BackboneServices</artifactId>
 	<packaging>jar</packaging>
-	<version>4.0</version>
+	<version>3.11</version>
+
 
 	<name>PiAngles Backbone Services</name>
 	<description>
