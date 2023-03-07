@@ -23,10 +23,13 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.javers.core.metamodel.annotation.Id;
+
 public final class UserPreferences implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	private String userId;
 	private Map<String, Object> nvPair = null;
 
