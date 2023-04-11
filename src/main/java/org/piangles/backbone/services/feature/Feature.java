@@ -6,64 +6,58 @@ public final class Feature implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
-	private String environment;//DEV/QAT/UAT/PROD
-
 	/**
 	 * Should be unique and descriptive.
 	 * 
-	 * Specific Format: zuro-[fe|be|both]-feature_name
+	 * Specific Format: piangles-[fe|be|both]-feature_name
 	 */
 	private String featureId;
 
 	private String description;
 	
 	private FeatureType featureType;
-	
-	private boolean archived; //This feature toggle is archived and is not active.
 
 	/**
-	 * Is this feature to be Viewable by user?
-	 */
-	private boolean viewable;
-	
-	/**
-	 * So the user can see it, but is it enabled? Corollary if it is is Enabled, Viewable is automatically true.
+	 * Is this feature enabledn by default to begin with.
 	 */
 	private boolean enabled;
 	
 	/**
-	 * So it is Enabled but is it Actionable? If it is actionable it is Enabled and certainly viewable.
+	 * Is this feature to be Viewable by the user?
+	 */
+	private boolean viewable;
+	
+	/**
+	 * Is this feature Actionable by the user? If it is actionable it is certainly viewable.
 	 */
 	private boolean actionable;
 
-	public Feature(	String environment, String featureId, String description, FeatureType featureType)
+	public Feature(String featureId, String description, FeatureType featureType, boolean enabled)
 	{
-		this(environment, featureId, description, featureType, false, true, true, true);
+		this(featureId, description, featureType, enabled, false, false);
 	}
 
-	public Feature(	String environment, String featureId, String description, FeatureType featureType, 
-					boolean viewable, boolean enabled, boolean actionable)
+	public Feature(	String featureId, String description, FeatureType featureType, 
+					boolean enabled, boolean viewable, boolean actionable)
 	{
-		this(environment, featureId, description, featureType, false, viewable, enabled, actionable);
-	}
-
-
-	public Feature(	String environment, String featureId, String description, FeatureType featureType, 
-			boolean archived, boolean viewable, boolean enabled, boolean actionable)
-	{
-		this.environment = environment;
 		this.featureId = featureId;
 		this.description = description;
 		this.featureType = featureType;
-		this.archived = archived;
-		this.viewable = viewable;
+		
 		this.enabled = enabled;
+		
+		this.viewable = viewable;
 		this.actionable = actionable;
 	}
 
-	public String getEnvironment()
+	public void markViewable()
 	{
-		return environment;
+		this.viewable = true;
+	}
+
+	public void markActionable()
+	{
+		this.actionable = true;
 	}
 
 	public String getFeatureId()
@@ -81,19 +75,14 @@ public final class Feature implements Serializable
 		return featureType;
 	}
 
-	public boolean isArchived()
+	public boolean isEnabled()
 	{
-		return archived;
+		return enabled;
 	}
 
 	public boolean isViewable()
 	{
 		return viewable;
-	}
-
-	public boolean isEnabled()
-	{
-		return enabled;
 	}
 
 	public boolean isActionable()
@@ -104,7 +93,7 @@ public final class Feature implements Serializable
 	@Override
 	public String toString()
 	{
-		return "Feature [environment=" + environment + ", featureId=" + featureId + ", description=" + description + ", featureType=" + featureType + ", archived=" + archived + ", viewable="
-				+ viewable + ", enabled=" + enabled + ", actionable=" + actionable + "]";
+		return "Feature [featureId=" + featureId + ", description=" + description + ", featureType=" + featureType + 
+				", enabled=" + enabled + ", viewable=" + viewable + ", actionable=" + actionable + "]";
 	}
 }

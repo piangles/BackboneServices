@@ -9,13 +9,11 @@ public final class FeatureList implements Serializable
 	private static final long serialVersionUID = 1L;
 	
 	private final String userId;
-	private final String bizId;
 	private final List<Feature> features;
 
-	public FeatureList(String userId, String bizId)
+	public FeatureList(String userId)
 	{
 		this.userId = userId;
-		this.bizId = bizId;
 		this.features = new ArrayList<>();
 	}
 
@@ -29,11 +27,6 @@ public final class FeatureList implements Serializable
 		return userId;
 	}
 
-	public String getBizId()
-	{
-		return bizId;
-	}
-	
 	public List<Feature> getFeatures()
 	{
 		return features;
@@ -42,6 +35,6 @@ public final class FeatureList implements Serializable
 	@Override
 	public String toString()
 	{
-		return "FeatureList [userId=" + userId + ", bizId=" + bizId + ", features=" + features + "]";
+		return "FeatureList [userId=" + userId + ", features=" + features + "]";
 	}
 }

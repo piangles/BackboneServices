@@ -4,5 +4,5 @@ public interface FeatureToggleService
 {
 	public static final String NAME = FeatureToggleService.class.getSimpleName();
 	
-	public FeatureList getFeatures(String userId, String bizId) throws FeatureException;
+	public FeatureList getFeatureList(String userId) throws FeatureException;
 }
