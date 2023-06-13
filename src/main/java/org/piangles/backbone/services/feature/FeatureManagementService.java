@@ -1,8 +1,8 @@
 package org.piangles.backbone.services.feature;
 
-public interface FeatureToggleService
+public interface FeatureManagementService
 {
-	public static final String NAME = FeatureToggleService.class.getSimpleName();
+	public static final String NAME = FeatureManagementService.class.getSimpleName();
 	
 	public void addUserToGroup(String userId, String groupId) throws FeatureException;
 	
