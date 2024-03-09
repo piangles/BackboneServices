@@ -4,25 +4,27 @@ import java.io.Serializable;
 
 public final class UpdateFeatureRequest implements Serializable {
 
-  private final String groupId;
-  private final String featureId;
-  private final boolean enabled;
+	private static final long serialVersionUID = 1L;
 
-  public UpdateFeatureRequest(String groupId, String featureId, boolean enabled) {
-    this.groupId = groupId;
-    this.featureId = featureId;
-    this.enabled = enabled;
-  }
+	private final String groupId;
+	private final String featureId;
+	private final boolean enabled;
 
-  public String getGroupId() {
-    return groupId;
-  }
+	public UpdateFeatureRequest(String groupId, String featureId, boolean enabled) {
+		this.groupId = groupId;
+		this.featureId = featureId;
+		this.enabled = enabled;
+	}
 
-  public String getFeatureId() {
-    return featureId;
-  }
+	public String getGroupId() {
+		return groupId;
+	}
 
-  public boolean isEnabled() {
-    return enabled;
-  }
+	public String getFeatureId() {
+		return featureId;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
 }
